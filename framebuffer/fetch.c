@@ -20,6 +20,7 @@
  * Interfaces for fetch table.
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

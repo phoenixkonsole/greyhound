@@ -30,12 +30,12 @@
  * fetches are stored in the ::queue_ring waiting for use.
  */
 
+
 #include <assert.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <string.h>
 #include <strings.h>
-#include <time.h>
 #include <libwapcaplet/libwapcaplet.h>
 #include <curl/curl.h>
 

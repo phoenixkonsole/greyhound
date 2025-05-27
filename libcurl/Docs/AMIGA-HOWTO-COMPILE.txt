@@ -1,0 +1,153 @@
+Edit curl-config.in (before running ./configure):
+
+Change
+
+if test 'X@ENABLE_SHARED@' = 'Xno'; then
+
+to
+
+if test 'Xyes' = 'Xyes'; then
+
+---------------
+
+Newlib:
+PKG_CONFIG_PATH=/SDK/local/newlib/lib/pkgconfig ./configure --host=ppc-amigaos --prefix=/SDK/local/newlib --exec-prefix=/SDK/local/newlib --enable-shared --enable-static --enable-threaded-resolver --disable-ipv6 --with-openssl --without-libpsl --disable-dependency-tracking LIBS=-lunix
+
+Clib2:
+PKG_CONFIG_PATH=/SDK/local/clib2/lib/pkgconfig ./configure --host=ppc-amigaos --prefix=/SDK/local/clib2 --exec-prefix=/SDK/local/clib2 --disable-shared --enable-static --enable-threaded-resolver --disable-ipv6 --with-openssl --without-libpsl --disable-dependency-tracking LIBS=-lunix CPPFLAGS="-O2 -mcrt=clib2" CXXFLAGS="-O2 -mcrt=clib2" CFLAGS="-O2 -mcrt=clib2"
+(With clib2, librtmp needs libm [-lm] for strtod function)
+Remove -Werror=implicit-function-declaration from CFLAGS
+At this time, the threaded resolver is disabled with clib2 regardless of the flag above
+
+Clib4:
+PKG_CONFIG_PATH=/SDK/local/clib4/lib/pkgconfig ./configure --host=ppc-amigaos --prefix=/SDK/local/clib4 --exec-prefix=/SDK/local/clib4 --enable-shared --enable-static --enable-threaded-resolver --disable-ipv6 --with-openssl --without-libpsl --disable-dependency-tracking CPPFLAGS="-O2 -mcrt=clib4" CXXFLAGS="-O2 -mcrt=clib4" CFLAGS="-O2 -mcrt=clib4"
+
+If using clib4 you might need to modify SDK:local/common/include/sched.h to
+#if !defined(__CLIB2__) && !defined(__NEWLIB__) && !defined(__CLIB4__)
+at struct timespec
+
+---------------
+
+Edit libtool (find and modify):
+
+deplibs_check_method="pass_all"
+version_type=sco
+
+---------------
+
+Edit lib/curl_config.h (find and modify):
+
+Choose 1 of these
+#define CURL_CA_PATH "DEVS:AmiSSL/Certs"
+or
+#define CURL_CA_BUNDLE "DEVS:curl-ca-bundle.crt"
+
+If compiling for clib4, remove #define HAVE_ALARM otherwise the program
+might freeze or crash if ran more than once within a short timeframe.
+
+DELETE these lines ONLY IF compiling for AmiSSL:
+#define HAVE_IOCTL 1
+#define HAVE_IOCTL_FIONBIO 1
+#define HAVE_IOCTL_SIOCGIFADDR 1
+
+---------------
+
+Edit lib/curl_setup.h (clib4 only):
+
+Change appropriate line to
+#    if !(defined(__NEWLIB__) || defined(__CLIB4__) || \
+          (defined(__CLIB2__) && defined(__THREAD_SAFE)))
+
+Otherwise the threaded resolver will be disabled despite showing enabled at
+the end of running the configure script.
+
+---------------
+
+Edit src/tool_main.c:
+
+Change stack 16384 to 500000
+
+Add
+
+static char *version_cookie __attribute__((used)) = "$VER: curl x.xx.x (dd.mm.yyyy) comment\0";
+
+---------------
+
+Edit lib/amigaos.c:
+
+Comment out the following (gethostbyname_r is not working properly)
+
+      ULONG enabled = 0;
+
+      SocketBaseTags(SBTM_SETVAL(SBTC_CAN_SHARE_LIBRARY_BASES), TRUE,
+                     SBTM_GETREF(SBTC_HAVE_GETHOSTADDR_R_API), (ULONG)&enabled,
+                     TAG_DONE);
+
+      if(enabled) {
+        SocketFeatures |= HAVE_BSDSOCKET_GETHOSTBYNAME_R;
+      }
+
+---------------
+
+Edit lib/file.c (clib4 only):
+
+Use unixPathsEnabled() instead of __unix_path_semantics
+
+---------------
+
+Edit lib/cf-socket.c and lib/socketpair.c (both clib4 only):
+
+#undef SOCK_NONBLOCK
+
+This fixes a 5 minute freeze at the end of running curl
+
+---------------
+
+Optionally add back AmigaSetComment code from
+https://raw.githubusercontent.com/curl/curl/1f4433dad4cb6fbb5c6a85c95ee1fcd8891a4129/src/tool_operate.c
+Removed after Jan 8th 2024
+and change per->this_url to per->url
+
+---------------
+
+  curl version:     8.13.0
+  SSL:              enabled (OpenSSL v3+)
+  SSH:              no      (--with-{libssh,libssh2})
+  zlib:             enabled
+  brotli:           no      (--with-brotli)
+  zstd:             no      (--with-zstd)
+  GSS-API:          no      (--with-gssapi)
+  GSASL:            no      (libgsasl not found)
+  TLS-SRP:          enabled
+  resolver:         POSIX threaded
+  IPv6:             no      (--enable-ipv6)
+  Unix sockets:     no      (--enable-unix-sockets)
+  IDN:              no      (--with-{libidn2,winidn})
+  Build docs:       enabled (--disable-docs)
+  Build libcurl:    Shared=yes, Static=yes
+  Built-in manual:  enabled
+  --libcurl option: enabled (--disable-libcurl-option)
+  Verbose errors:   enabled (--disable-verbose)
+  Code coverage:    disabled
+  SSPI:             no      (--enable-sspi)
+  ca cert bundle:   no
+  ca cert path:     no
+  ca cert embed:    no
+  ca fallback:      no
+  LDAP:             no      (--enable-ldap / --with-ldap-lib / --with-lber-lib)
+  LDAPS:            no      (--enable-ldaps)
+  IPFS/IPNS:        enabled
+  RTSP:             enabled
+  RTMP:             enabled (librtmp)
+  PSL:              no      (--with-libpsl)
+  Alt-svc:          enabled (--disable-alt-svc)
+  Headers API:      enabled (--disable-headers-api)
+  HSTS:             enabled (--disable-hsts)
+  HTTP1:            enabled (internal)
+  HTTP2:            no      (--with-nghttp2)
+  HTTP3:            no      (--with-ngtcp2 --with-nghttp3, --with-quiche, --with-openssl-quic, --with-msh3)
+  ECH:              no      (--enable-ech)
+  HTTPS RR:         no      (--enable-httpsrr)
+  SSLS-EXPORT:      no      (--enable-ssls-export)
+  Protocols:        dict file ftp ftps gopher gophers http https imap imaps ipfs ipns mqtt pop3 pop3s rtmp rtsp smb smbs smtp smtps telnet tftp ws wss
+  Features:         alt-svc AsynchDNS HSTS HTTPS-proxy Largefile libz NTLM SSL threadsafe TLS-SRP

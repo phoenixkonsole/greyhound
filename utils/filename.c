@@ -24,7 +24,8 @@
 
 #include <assert.h>
 #include <sys/types.h>
-#include <dirent.h>
+#include <proto/dos.h>
+#include <dos/dos.h>
 #include <stdbool.h>
 #include <string.h>
 #include <stdio.h>

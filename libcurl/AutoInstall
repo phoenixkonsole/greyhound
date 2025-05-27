@@ -1,0 +1,7 @@
+Delete SDK:local/newlib/lib/libcurl.#? QUIET
+Delete SDK:local/clib4/lib/libcurl.#? QUIET
+Copy SDK/local SDK:local ALL CLONE QUIET
+CD SDK:local/newlib/lib
+MakeLink libcurl.so libcurl.so.12 SOFT
+CD SDK:local/clib4/lib
+MakeLink libcurl.so libcurl.so.12 SOFT

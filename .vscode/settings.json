@@ -1,5 +1,8 @@
 {
     "[m68k]": {
         "editor.rulers": []
+    },
+    "files.associations": {
+        "libwapcaplet.h": "c"
     }
 }

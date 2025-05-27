@@ -69,7 +69,8 @@
 #include <sys/stat.h>
 
 #if	defined(USE_DIRENT)
-#include <dirent.h>
+#include <proto/dos.h>
+#include <dos/dos.h>
 typedef struct dirent	DIRENTRY;
 #else
 #include <sys/dir.h>

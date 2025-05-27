@@ -20,7 +20,8 @@
 #define _GREYHOUND_UTILS_CONFIG_H_
 
 #include <stddef.h>
-/* #include <dirent.h>
+/* #include <proto/dos.h>
+#include <dos/dos.h>
 
 /* Try to detect which features the target OS supports */
 

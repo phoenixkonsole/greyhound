@@ -30,7 +30,8 @@
 #include <strings.h>
 #include <time.h>
 #include <stdio.h>
-#include <dirent.h>
+#include <proto/dos.h>
+#include <dos/dos.h>
 #include <limits.h>
 #include <stdarg.h>
 

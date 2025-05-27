@@ -535,7 +535,8 @@ int main(int argc, char *argv[])
 #ifdef NSTHEME
 	/* code to implement a simple container creator/extractor */
 #include <getopt.h>
-#include <dirent.h>
+#include <proto/dos.h>
+#include <dos/dos.h>
 #include <errno.h>
 #include <unistd.h>
 

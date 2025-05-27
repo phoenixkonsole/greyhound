@@ -20,7 +20,7 @@
 /** \file
  * Content for text/html (implementation).
  */
-
+#include <time.h>
 #include <assert.h>
 #include <ctype.h>
 #include <stdint.h>
