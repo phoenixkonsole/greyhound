@@ -586,6 +586,12 @@ S_COMMON := $(S_CONTENT) $(S_FETCHERS) $(S_CSS)	$(S_RENDER) $(S_UTILS) \
 # Force exapnsion of source file list
 SOURCES := $(SOURCES)
 
+SOURCES := $(filter-out \
+  framebuffer/thumbnail.c \
+  framebuffer/localhistory.c \
+  framebuffer/schedule.c \
+,$(SOURCES))
+
 ifeq ($(SOURCES),)
 $(error Unable to build Greyhound, could not determine set of sources to build)
 endif
