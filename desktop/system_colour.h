@@ -20,8 +20,8 @@
  * Interface to system colour values.
  */
 
-#ifndef _NETSURF_DESKTOP_SYSTEM_COLOUR_H_
-#define _NETSURF_DESKTOP_SYSTEM_COLOUR_H_
+#ifndef _GREYHOUND_DESKTOP_SYSTEM_COLOUR_H_
+#define _GREYHOUND_DESKTOP_SYSTEM_COLOUR_H_
 
 #include <libcss/libcss.h>
 

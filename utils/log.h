@@ -17,8 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _NETSURF_LOG_H_
-#define _NETSURF_LOG_H_
+#ifndef _GREYHOUND_LOG_H_
+#define _GREYHOUND_LOG_H_
 
 #include <stdio.h>
 #include <stdbool.h>

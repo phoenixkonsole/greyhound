@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_FBTK_WIDGET_H
-#define NETSURF_FB_FBTK_WIDGET_H
+#ifndef GREYHOUND_FB_FBTK_WIDGET_H
+#define GREYHOUND_FB_FBTK_WIDGET_H
 
 #include <stdbool.h>
 

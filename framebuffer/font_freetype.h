@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_FONT_FREETYPE_H
-#define NETSURF_FB_FONT_FREETYPE_H
+#ifndef GREYHOUND_FB_FONT_FREETYPE_H
+#define GREYHOUND_FB_FONT_FREETYPE_H
 
 #include <ft2build.h>  
 #include FT_FREETYPE_H 
@@ -27,4 +27,4 @@ extern int ft_load_type;
 
 FT_Glyph fb_getglyph(const plot_font_style_t *fstyle, uint32_t ucs4);
 
-#endif /* NETSURF_FB_FONT_FREETYPE_H */
+#endif /* GREYHOUND_FB_FONT_FREETYPE_H */

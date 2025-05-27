@@ -39,8 +39,8 @@
  * dereference (which this current implementation keeps).
  */
 
-#ifndef _NETSURF_UTILS_NSOPTION_H_
-#define _NETSURF_UTILS_NSOPTION_H_
+#ifndef _GREYHOUND_UTILS_NSOPTION_H_
+#define _GREYHOUND_UTILS_NSOPTION_H_
 
 #include <stdio.h>
 #include <stdint.h>

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_CLIPBOARD_H
-#define NETSURF_FB_CLIPBOARD_H
+#ifndef GREYHOUND_FB_CLIPBOARD_H
+#define GREYHOUND_FB_CLIPBOARD_H
 
 extern struct gui_clipboard_table *framebuffer_clipboard_table;
 

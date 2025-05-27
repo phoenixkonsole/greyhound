@@ -20,8 +20,8 @@
  * Content for image/jpeg (interface).
  */
 
-#ifndef _NETSURF_IMAGE_JPEG_H_
-#define _NETSURF_IMAGE_JPEG_H_
+#ifndef _GREYHOUND_IMAGE_JPEG_H_
+#define _GREYHOUND_IMAGE_JPEG_H_
 
 nserror nsjpeg_init(void);
 

@@ -24,8 +24,8 @@
  * also adds boxes to the tree (eg. when formatting lines of text).
  */
 
-#ifndef _NETSURF_RENDER_LAYOUT_H_
-#define _NETSURF_RENDER_LAYOUT_H_
+#ifndef _GREYHOUND_RENDER_LAYOUT_H_
+#define _GREYHOUND_RENDER_LAYOUT_H_
 
 struct box;
 struct html_content;

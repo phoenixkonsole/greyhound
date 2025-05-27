@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_UTILS_HTTP_GENERICS_H_
-#define NETSURF_UTILS_HTTP_GENERICS_H_
+#ifndef GREYHOUND_UTILS_HTTP_GENERICS_H_
+#define GREYHOUND_UTILS_HTTP_GENERICS_H_
 
 #include "utils/errors.h"
 

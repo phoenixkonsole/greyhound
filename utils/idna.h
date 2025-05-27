@@ -20,8 +20,8 @@
  * Greyhound international domain name handling (interface).
  */
 
-#ifndef _NETSURF_UTILS_IDNA_H_
-#define _NETSURF_UTILS_IDNA_H_
+#ifndef _GREYHOUND_UTILS_IDNA_H_
+#define _GREYHOUND_UTILS_IDNA_H_
 
 /**
  * Convert a hostname to an ACE version suitable for DNS lookup

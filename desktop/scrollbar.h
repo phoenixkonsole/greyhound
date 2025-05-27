@@ -20,8 +20,8 @@
  * Scrollbar widget (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_SCROLLBAR_H_
-#define _NETSURF_DESKTOP_SCROLLBAR_H_
+#ifndef _GREYHOUND_DESKTOP_SCROLLBAR_H_
+#define _GREYHOUND_DESKTOP_SCROLLBAR_H_
 
 #include <stdbool.h>
 #include <limits.h>

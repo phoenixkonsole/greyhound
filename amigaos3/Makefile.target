@@ -3,13 +3,13 @@
 # ----------------------------------------------------------------------------
 
 override  HOST := windows
-override  NETSURF_FB_FONTPATH=/"PROGDIR:Fonts"/
+override  GREYHOUND_FB_FONTPATH=/"PROGDIR:Fonts"/
 
 $(eval $(call feature_enabled,PNG,-DWITH_PNG,-lpng,PNG (libpng)  ))
 $(eval $(call feature_enabled,GIF,-DWITH_GIF,-lnsgif,GIF (libnsgif)  ))
 $(eval $(call feature_enabled,BMP,-DWITH_BMP,-lnsbmp,BMP (libnsbmp)  ))
 
-ifeq ($(NETSURF_FB_FONTLIB),freetype)
+ifeq ($(GREYHOUND_FB_FONTLIB),freetype)
   CFLAGS += -DFB_USE_FREETYPE 
   LDFLAGS += -lft2
 endif
@@ -18,7 +18,7 @@ CFLAGS += -Dnsamigaos3 -D__BIG_ENDIAN_BGRA__ -DSTMATH \
 			-D__AMIGA__ -D__USE_INLINE__ 
 
 #resource path
-CFLAGS += '-DNETSURF_FB_RESPATH="PROGDIR:Resources"'
+CFLAGS += '-DGREYHOUND_FB_RESPATH="PROGDIR:Resources"'
 #-I/opt/share/include
 CFLAGS += -std=c99 -I.  -I/opt/greyhound/share/include -Dsmall \
 		-D_BSD_SOURCE \
@@ -43,7 +43,7 @@ endif
 LDFLAGS +=  -ltheme -ldebug -lc2 -lauto 
 #-leprintf -lnetbsd
 
-ifeq ($(NETSURF_USE_MOZJS), YES)
+ifeq ($(GREYHOUND_USE_MOZJS), YES)
 LDFLAGS += -ljs
 CFLAGS += -DXP_UNIX
 endif
@@ -58,7 +58,7 @@ S_AMIGAOS3 := gui.c clipboard.c misc.c caret.c findfile.c loadpng.c utf8.c
 S_AMIGAOS3 +=  ami_clipboard.c ami_version.c useragent.c
 S_AMIGAOS3_FBTK := event.c scroll.c text.c
 
-S_AMIGAOS3 += font_$(NETSURF_FB_FONTLIB).c
+S_AMIGAOS3 += font_$(GREYHOUND_FB_FONTLIB).c
 
 # FRAMEBUFFER sources 
 S_FRAMEBUFFER :=   framebuffer.c schedule.c	thumbnail.c \
@@ -82,12 +82,12 @@ S_AMIGA_FB :=  $(S_AMIGAOS3) $(S_FRAMEBUFFER) $(S_LIBNSFB)
 #   are not yet available
 SOURCES = $(S_COMMON) $(S_IMAGE) $(S_BROWSER) $(S_AMIGA_FB) $(S_IMAGES)
 
-ifeq ($(NETSURF_USE_MOZJS),YES)
+ifeq ($(GREYHOUND_USE_MOZJS),YES)
 EXETARGET := GreyhoundJS
 else
 
 ifeq ($(RTG),YES)
-ifeq ($(NETSURF_FB_FONTLIB),freetype)
+ifeq ($(GREYHOUND_FB_FONTLIB),freetype)
 	EXETARGET := Greyhound
 else
 	EXETARGET := Greyhound-nottf
@@ -95,13 +95,13 @@ endif
 else
 
 ifeq ($(AGA),685)
-ifeq ($(NETSURF_FB_FONTLIB),freetype)
+ifeq ($(GREYHOUND_FB_FONTLIB),freetype)
 	EXETARGET := GreyhoundAGA
 else
 	EXETARGET := GreyhoundAGA-nottf
 endif
 else
-ifeq ($(NETSURF_FB_FONTLIB),freetype)
+ifeq ($(GREYHOUND_FB_FONTLIB),freetype)
 	EXETARGET := GreyhoundAGAlow
 else
 	EXETARGET := GreyhoundAGAlow-nottf
@@ -110,6 +110,6 @@ endif
 endif
 endif
 
-NETSURF_FRAMEBUFFER_RESOURCE_LIST := adblock.css credits.html	\
+GREYHOUND_FRAMEBUFFER_RESOURCE_LIST := adblock.css credits.html	\
  	default.css internal.css licence.html			\
 	greyhound.png quirks.css welcome.html Messages

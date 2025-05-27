@@ -20,8 +20,8 @@
  * data: URL method handler
  */
 
-#ifndef NETSURF_CONTENT_FETCHERS_FETCH_DATA_H
-#define NETSURF_CONTENT_FETCHERS_FETCH_DATA_H
+#ifndef GREYHOUND_CONTENT_FETCHERS_FETCH_DATA_H
+#define GREYHOUND_CONTENT_FETCHERS_FETCH_DATA_H
 
 nserror fetch_data_register(void);
 

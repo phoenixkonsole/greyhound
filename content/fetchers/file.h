@@ -20,8 +20,8 @@
  * file: URL method handler
  */
 
-#ifndef NETSURF_CONTENT_FETCHERS_FETCH_FILE_H
-#define NETSURF_CONTENT_FETCHERS_FETCH_FILE_H
+#ifndef GREYHOUND_CONTENT_FETCHERS_FETCH_FILE_H
+#define GREYHOUND_CONTENT_FETCHERS_FETCH_FILE_H
 
 nserror fetch_file_register(void);
 

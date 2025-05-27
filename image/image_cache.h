@@ -34,8 +34,8 @@
  * content handler complete control.
  */
 
-#ifndef NETSURF_IMAGE_IMAGE_CACHE_H_
-#define NETSURF_IMAGE_IMAGE_CACHE_H_
+#ifndef GREYHOUND_IMAGE_IMAGE_CACHE_H_
+#define GREYHOUND_IMAGE_IMAGE_CACHE_H_
 
 #include "utils/errors.h"
 #include "desktop/plotters.h"

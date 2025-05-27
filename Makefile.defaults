@@ -33,63 +33,63 @@
 
 # Enable Greyhound's use of libnsbmp for displaying BMPs and ICOs
 # Valid options: YES, NO
-NETSURF_USE_BMP := YES
+GREYHOUND_USE_BMP := YES
 
 # Enable Greyhound's use of libnsgif for displaying GIFs
 # Valid options: YES, NO				  (highly recommended)
-NETSURF_USE_GIF := YES
+GREYHOUND_USE_GIF := YES
 
 # Enable Greyhound's use of libjpeg for displaying JPEGs
 # Valid options: YES, NO				  (highly recommended)
-NETSURF_USE_JPEG := YES
+GREYHOUND_USE_JPEG := YES
 
 # Enable Greyhound's use of libpng for displaying PNGs.
 # Valid options: YES, NO	                          (highly recommended)
-NETSURF_USE_PNG := YES
+GREYHOUND_USE_PNG := YES
 
 # Enable Greyhound's use of libwebp for displaying WebPs
 # Valid options: YES, NO
-NETSURF_USE_WEBP := NO
+GREYHOUND_USE_WEBP := NO
 
 # Enable Greyhound's use of gstreamer for displaying videos
 # Valid options: YES, NO
-NETSURF_USE_VIDEO := NO
+GREYHOUND_USE_VIDEO := NO
 
 # Enable Greyhound's use of spidermonkey for javascript
 # Valid options: YES, NO, AUTO
-NETSURF_USE_JS := AUTO
+GREYHOUND_USE_JS := AUTO
 # Javascript support in older debian/ubuntu versions
-NETSURF_USE_MOZJS := AUTO
+GREYHOUND_USE_MOZJS := AUTO
 
 # Enable Greyhound's use of libharu for PDF export and GTK printing support.
 # There is no auto-detection available for this, as it does not have a
 # pkg-config file.
 # Valid options: YES, NO
-NETSURF_USE_HARU_PDF := NO
+GREYHOUND_USE_HARU_PDF := NO
 
 # Enable stripping the Greyhound binary
 # Valid options: YES, NO
-NETSURF_STRIP_BINARY := NO
+GREYHOUND_STRIP_BINARY := NO
 
 # Template used for constructing the User Agent: string.  The first two
 # replacements are major/minor version, next is OS.
 # Please don't be tempted to mention Mozilla here!  Let's let that lie die.
-NETSURF_UA_FORMAT_STRING := "Greyhound/%d.%d (%s)"
+GREYHOUND_UA_FORMAT_STRING := "Greyhound/%d.%d (%s)"
 
 # Default home page, if one is not defined by the user.  Note that this
 # option does not apply to the RISC OS version, as it has its own local
 # home page, and it can be changed by editing the end of gui_init2() in
 # riscos/gui.c
-NETSURF_HOMEPAGE := "about:welcome"
+GREYHOUND_HOMEPAGE := "about:welcome"
 
 # Force using glibc internal iconv implementation instead of external libiconv
 # Valid options: YES, NO
-NETSURF_USE_LIBICONV_PLUG := YES
+GREYHOUND_USE_LIBICONV_PLUG := YES
 
 # Enable building the source object cache filesystem based backing store.
 # implementation.
 # Valid options: YES, NO
-NETSURF_FS_BACKING_STORE := NO
+GREYHOUND_FS_BACKING_STORE := NO
 
 # Initial CFLAGS. Optimisation level etc. tend to be target specific.
 CFLAGS :=

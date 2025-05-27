@@ -20,8 +20,8 @@
 	PDF Plotting
 */
 
-#ifndef NETSURF_PDF_PLOTTERS_H
-#define NETSURF_PDF_PLOTTERS_H
+#ifndef GREYHOUND_PDF_PLOTTERS_H
+#define GREYHOUND_PDF_PLOTTERS_H
 
 #include "desktop/print.h"
 
@@ -38,4 +38,4 @@ void pdf_end(void);
 
 void save_pdf(const char *path);
 
-#endif /*NETSURF_PDF_PLOTTERS_H*/
+#endif /*GREYHOUND_PDF_PLOTTERS_H*/

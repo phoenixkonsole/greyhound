@@ -22,8 +22,8 @@
  * These functions should in general be called via the content interface.
  */
 
-#ifndef _NETSURF_RENDER_HTML_H_
-#define _NETSURF_RENDER_HTML_H_
+#ifndef _GREYHOUND_RENDER_HTML_H_
+#define _GREYHOUND_RENDER_HTML_H_
 
 #include <stdbool.h>
 

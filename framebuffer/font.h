@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_FONT_H
-#define NETSURF_FB_FONT_H
+#ifndef GREYHOUND_FB_FONT_H
+#define GREYHOUND_FB_FONT_H
 
 #include "utils/utf8.h"
 
@@ -32,5 +32,5 @@ bool fb_font_finalise(void);
 #include "framebuffer/font_internal.h"
 #endif
 
-#endif /* NETSURF_FB_FONT_H */
+#endif /* GREYHOUND_FB_FONT_H */
 

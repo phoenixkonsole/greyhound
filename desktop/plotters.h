@@ -20,8 +20,8 @@
  * Target independent plotting (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_PLOTTERS_H_
-#define _NETSURF_DESKTOP_PLOTTERS_H_
+#ifndef _GREYHOUND_DESKTOP_PLOTTERS_H_
+#define _GREYHOUND_DESKTOP_PLOTTERS_H_
 
 #include <stdbool.h>
 #include <stdio.h>

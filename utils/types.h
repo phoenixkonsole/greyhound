@@ -20,8 +20,8 @@
  * Core types.
  */
 
-#ifndef _NETSURF_UTILS_TYPES_H_
-#define _NETSURF_UTILS_TYPES_H_
+#ifndef _GREYHOUND_UTILS_TYPES_H_
+#define _GREYHOUND_UTILS_TYPES_H_
 
 #include <stdbool.h>
 

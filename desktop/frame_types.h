@@ -20,8 +20,8 @@
  * Browser window creation and manipulation (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_FRAME_TYPES_H_
-#define _NETSURF_DESKTOP_FRAME_TYPES_H_
+#ifndef _GREYHOUND_DESKTOP_FRAME_TYPES_H_
+#define _GREYHOUND_DESKTOP_FRAME_TYPES_H_
 
 struct frame_dimension {
   	float value;

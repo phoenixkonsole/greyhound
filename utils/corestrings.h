@@ -20,8 +20,8 @@
  * Useful interned string pointers (interface).
  */
 
-#ifndef NETSURF_UTILS_CORESTRINGS_H_
-#define NETSURF_UTILS_CORESTRINGS_H_
+#ifndef GREYHOUND_UTILS_CORESTRINGS_H_
+#define GREYHOUND_UTILS_CORESTRINGS_H_
 
 #include <libwapcaplet/libwapcaplet.h>
 #include "utils/nsurl.h"

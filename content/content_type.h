@@ -22,8 +22,8 @@
  * The content_type enum is defined here to prevent cyclic dependencies.
  */
 
-#ifndef _NETSURF_DESKTOP_CONTENT_TYPE_H_
-#define _NETSURF_DESKTOP_CONTENT_TYPE_H_
+#ifndef _GREYHOUND_DESKTOP_CONTENT_TYPE_H_
+#define _GREYHOUND_DESKTOP_CONTENT_TYPE_H_
 
 /** The type of a content. */
 typedef enum {

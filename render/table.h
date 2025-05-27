@@ -21,8 +21,8 @@
  * Table processing and layout (interface).
  */
 
-#ifndef _NETSURF_RENDER_TABLE_H_
-#define _NETSURF_RENDER_TABLE_H_
+#ifndef _GREYHOUND_RENDER_TABLE_H_
+#define _GREYHOUND_RENDER_TABLE_H_
 
 #include <stdbool.h>
 

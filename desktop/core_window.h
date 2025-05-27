@@ -20,8 +20,8 @@
  * Core window handling (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_CORE_WINDOW_H_
-#define _NETSURF_DESKTOP_CORE_WINDOW_H_
+#ifndef _GREYHOUND_DESKTOP_CORE_WINDOW_H_
+#define _GREYHOUND_DESKTOP_CORE_WINDOW_H_
 
 #include "utils/types.h"
 

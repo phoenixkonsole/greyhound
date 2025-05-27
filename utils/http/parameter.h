@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_UTILS_HTTP_PARAMETER_H_
-#define NETSURF_UTILS_HTTP_PARAMETER_H_
+#ifndef GREYHOUND_UTILS_HTTP_PARAMETER_H_
+#define GREYHOUND_UTILS_HTTP_PARAMETER_H_
 
 #include <libwapcaplet/libwapcaplet.h>
 

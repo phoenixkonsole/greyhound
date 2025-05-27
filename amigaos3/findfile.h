@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_FINDFILE_H
-#define NETSURF_FB_FINDFILE_H
+#ifndef GREYHOUND_FB_FINDFILE_H
+#define GREYHOUND_FB_FINDFILE_H
 
 #include "utils/nsurl.h"
 
@@ -33,4 +33,4 @@ char **fb_init_resource(const char *resource_path);
 
 nsurl *gui_get_resource_url(const char *path);
 
-#endif /* NETSURF_FB_FINDFILE_H */
+#endif /* GREYHOUND_FB_FINDFILE_H */

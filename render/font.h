@@ -29,8 +29,8 @@
  * abstracting it here.
  */
 
-#ifndef _NETSURF_RENDER_FONT_H_
-#define _NETSURF_RENDER_FONT_H_
+#ifndef _GREYHOUND_RENDER_FONT_H_
+#define _GREYHOUND_RENDER_FONT_H_
 
 #include <stdbool.h>
 #include <stddef.h>

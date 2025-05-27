@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _NETSURF_DESKTOP_NETSURF_H_
-#define _NETSURF_DESKTOP_NETSURF_H_
+#ifndef _GREYHOUND_DESKTOP_GREYHOUND_H_
+#define _GREYHOUND_DESKTOP_GREYHOUND_H_
 
 #include <stdbool.h>
 #include "utils/errors.h"

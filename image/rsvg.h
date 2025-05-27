@@ -20,8 +20,8 @@
  * Content handler for image/svg using librsvg (interface).
  */
 
-#ifndef _NETSURF_IMAGE_RSVG_H_
-#define _NETSURF_IMAGE_RSVG_H_
+#ifndef _GREYHOUND_IMAGE_RSVG_H_
+#define _GREYHOUND_IMAGE_RSVG_H_
 
 nserror nsrsvg_init(void);
 

@@ -29,8 +29,8 @@
  * print_set_up, print_draw_next_page and print_cleanup directly.
 */
 
-#ifndef NETSURF_DESKTOP_PRINT_H
-#define NETSURF_DESKTOP_PRINT_H
+#ifndef GREYHOUND_DESKTOP_PRINT_H
+#define GREYHOUND_DESKTOP_PRINT_H
 
 #include <stdbool.h>
 

@@ -17,8 +17,8 @@
  */
 
 
-#ifndef NETSURF_FB_FETCH_H
-#define NETSURF_FB_FETCH_H
+#ifndef GREYHOUND_FB_FETCH_H
+#define GREYHOUND_FB_FETCH_H
 
 struct gui_fetch_table *framebuffer_fetch_table;
 

@@ -7,8 +7,8 @@
  * Copyright 2012 Greyhound Browser Project
  */
 
-#ifndef NETSURF_REVISION_TESTAMENT
-#define NETSURF_REVISION_TESTAMENT "5cf8ef3a4ee5fd663eb7267b6e172060"
+#ifndef GREYHOUND_REVISION_TESTAMENT
+#define GREYHOUND_REVISION_TESTAMENT "5cf8ef3a4ee5fd663eb7267b6e172060"
 
 /* Revision testament checksum:
  * MD5:5cf8ef3a4ee5fd663eb7267b6e172060

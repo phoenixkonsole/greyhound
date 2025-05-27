@@ -83,8 +83,8 @@
  * \endcode
  */
 
-#ifndef _NETSURF_RENDER_BOX_H_
-#define _NETSURF_RENDER_BOX_H_
+#ifndef _GREYHOUND_RENDER_BOX_H_
+#define _GREYHOUND_RENDER_BOX_H_
 
 #include <limits.h>
 #include <stdbool.h>

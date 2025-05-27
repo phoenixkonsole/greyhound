@@ -20,8 +20,8 @@
  * Cookie Manager (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_COOKIE_MANAGER_H_
-#define _NETSURF_DESKTOP_COOKIE_MANAGER_H_
+#ifndef _GREYHOUND_DESKTOP_COOKIE_MANAGER_H_
+#define _GREYHOUND_DESKTOP_COOKIE_MANAGER_H_
 
 #include <stdbool.h>
 #include <stdint.h>

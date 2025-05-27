@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_FINDFILE_H
-#define NETSURF_FB_FINDFILE_H
+#ifndef GREYHOUND_FB_FINDFILE_H
+#define GREYHOUND_FB_FINDFILE_H
 
 extern char **respaths;
 
@@ -29,4 +29,4 @@ extern char **respaths;
  */
 char **fb_init_resource(const char *resource_path);
 
-#endif /* NETSURF_FB_FINDFILE_H */
+#endif /* GREYHOUND_FB_FINDFILE_H */

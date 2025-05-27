@@ -20,8 +20,8 @@
  * Locale-specific variants of various routines (interface)
  */
 
-#ifndef _NETSURF_UTILS_LOCALE_H_
-#define _NETSURF_UTILS_LOCALE_H_
+#ifndef _GREYHOUND_UTILS_LOCALE_H_
+#define _GREYHOUND_UTILS_LOCALE_H_
 
 /* <ctype.h> functions */
 int ls_isalpha(int c);

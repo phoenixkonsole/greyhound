@@ -30,8 +30,8 @@
  * file table.  Use the _ctx versions of the functions to do this.
  */
 
-#ifndef _NETSURF_UTILS_MESSAGES_H_
-#define _NETSURF_UTILS_MESSAGES_H_
+#ifndef _GREYHOUND_UTILS_MESSAGES_H_
+#define _GREYHOUND_UTILS_MESSAGES_H_
 
 #include "utils/errors.h"
 #include "utils/hashtable.h"

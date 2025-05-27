@@ -20,8 +20,8 @@
  * Error codes
  */
 
-#ifndef NETSURF_UTILS_ERRORS_H_
-#define NETSURF_UTILS_ERRORS_H_
+#ifndef GREYHOUND_UTILS_ERRORS_H_
+#define GREYHOUND_UTILS_ERRORS_H_
 
 /**
  * Enumeration of error codes

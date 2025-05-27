@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _NETSURF_FRAMEBUFFER_OPTIONS_H_
-#define _NETSURF_FRAMEBUFFER_OPTIONS_H_
+#ifndef _GREYHOUND_FRAMEBUFFER_OPTIONS_H_
+#define _GREYHOUND_FRAMEBUFFER_OPTIONS_H_
 
 /* currently nothing here */
 

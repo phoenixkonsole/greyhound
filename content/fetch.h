@@ -20,8 +20,8 @@
  * Fetching of data from a URL (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_FETCH_H_
-#define _NETSURF_DESKTOP_FETCH_H_
+#ifndef _GREYHOUND_DESKTOP_FETCH_H_
+#define _GREYHOUND_DESKTOP_FETCH_H_
 
 #include <stdbool.h>
 

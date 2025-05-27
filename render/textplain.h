@@ -21,8 +21,8 @@
  * Content for text/plain (interface).
  */
 
-#ifndef _NETSURF_RENDER_TEXTPLAIN_H_
-#define _NETSURF_RENDER_TEXTPLAIN_H_
+#ifndef _GREYHOUND_RENDER_TEXTPLAIN_H_
+#define _GREYHOUND_RENDER_TEXTPLAIN_H_
 
 #include <stddef.h>
 #include "desktop/mouse.h"

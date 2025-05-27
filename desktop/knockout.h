@@ -20,8 +20,8 @@
  * Knockout rendering (interface).
  */
 
-#ifndef _NETSURF_DESKTOP_KNOCKOUT_H_
-#define _NETSURF_DESKTOP_KNOCKOUT_H_
+#ifndef _GREYHOUND_DESKTOP_KNOCKOUT_H_
+#define _GREYHOUND_DESKTOP_KNOCKOUT_H_
 
 #include "desktop/plotters.h"
 

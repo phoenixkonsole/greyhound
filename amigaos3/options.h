@@ -17,8 +17,8 @@
  */
 
 
-#ifndef _NETSURF_FRAMEBUFFER_OPTIONS_H_
-#define _NETSURF_FRAMEBUFFER_OPTIONS_H_
+#ifndef _GREYHOUND_FRAMEBUFFER_OPTIONS_H_
+#define _GREYHOUND_FRAMEBUFFER_OPTIONS_H_
 #endif
 /***** surface options *****/
 

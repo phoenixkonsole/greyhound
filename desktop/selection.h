@@ -20,8 +20,8 @@
   * Text selection within browser windows (interface).
   */
 
-#ifndef _NETSURF_DESKTOP_SELECTION_H_
-#define _NETSURF_DESKTOP_SELECTION_H_
+#ifndef _GREYHOUND_DESKTOP_SELECTION_H_
+#define _GREYHOUND_DESKTOP_SELECTION_H_
 
 #include <stdbool.h>
 #include "desktop/mouse.h"

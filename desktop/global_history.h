@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
  
-#ifndef _NETSURF_DESKTOP_GLOBAL_HISTORY_H_
-#define _NETSURF_DESKTOP_GLOBAL_HISTORY_H_
+#ifndef _GREYHOUND_DESKTOP_GLOBAL_HISTORY_H_
+#define _GREYHOUND_DESKTOP_GLOBAL_HISTORY_H_
 
 #include <stdbool.h>
 #include <stdint.h>

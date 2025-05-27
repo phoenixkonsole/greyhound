@@ -20,8 +20,8 @@
  * HTTP header parsing functions
  */
 
-#ifndef NETSURF_UTILS_HTTP_H_
-#define NETSURF_UTILS_HTTP_H_
+#ifndef GREYHOUND_UTILS_HTTP_H_
+#define GREYHOUND_UTILS_HTTP_H_
 
 #include <libwapcaplet/libwapcaplet.h>
 

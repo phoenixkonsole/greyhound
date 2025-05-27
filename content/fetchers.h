@@ -22,8 +22,8 @@
  * Interface for fetchers factory.
  */
 
-#ifndef _NETSURF_DESKTOP_FETCHERS_H_
-#define _NETSURF_DESKTOP_FETCHERS_H_
+#ifndef _GREYHOUND_DESKTOP_FETCHERS_H_
+#define _GREYHOUND_DESKTOP_FETCHERS_H_
 
 #include "utils/config.h"
 #include <libwapcaplet/libwapcaplet.h>

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_FONT_INTERNAL_H
-#define NETSURF_FB_FONT_INTERNAL_H
+#ifndef GREYHOUND_FB_FONT_INTERNAL_H
+#define GREYHOUND_FB_FONT_INTERNAL_H
 
 #include <stdbool.h>
 
@@ -45,5 +45,5 @@ const uint8_t *fb_get_glyph(uint32_t ucs4, enum fb_font_style style, int scale);
 #define codepoint_displayable(u) \
 	(!(u >= 0x200b && u <= 0x200f))
 
-#endif /* NETSURF_FB_FONT_INTERNAL_H */
+#endif /* GREYHOUND_FB_FONT_INTERNAL_H */
 

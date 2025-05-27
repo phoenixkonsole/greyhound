@@ -21,8 +21,8 @@
  * Single/Multi-line UTF-8 text area (interface)
  */
 
-#ifndef _NETSURF_DESKTOP_TEXTAREA_H_
-#define _NETSURF_DESKTOP_TEXTAREA_H_
+#ifndef _GREYHOUND_DESKTOP_TEXTAREA_H_
+#define _GREYHOUND_DESKTOP_TEXTAREA_H_
 
 #include <stdint.h>
 #include <stdbool.h>

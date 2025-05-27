@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_CONTENT_CONTENT_FACTORY_H_
-#define NETSURF_CONTENT_CONTENT_FACTORY_H_
+#ifndef GREYHOUND_CONTENT_CONTENT_FACTORY_H_
+#define GREYHOUND_CONTENT_CONTENT_FACTORY_H_
 
 #include <stdbool.h>
 

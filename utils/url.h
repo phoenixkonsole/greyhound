@@ -22,8 +22,8 @@
  * \brief Interface to URL parsing and joining operations.
  */
 
-#ifndef _NETSURF_UTILS_URL_H_
-#define _NETSURF_UTILS_URL_H_
+#ifndef _GREYHOUND_UTILS_URL_H_
+#define _GREYHOUND_UTILS_URL_H_
 
 #include "utils/errors.h"
 

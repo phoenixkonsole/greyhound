@@ -23,8 +23,8 @@
  * \todo Many of these functions and macros should have their own headers.
  */
 
-#ifndef _NETSURF_UTILS_UTILS_H_
-#define _NETSURF_UTILS_UTILS_H_
+#ifndef _GREYHOUND_UTILS_UTILS_H_
+#define _GREYHOUND_UTILS_UTILS_H_
 
 #include <inttypes.h>
 #include <stdbool.h>

@@ -22,8 +22,8 @@
  * These functions should in general be called via the content interface.
  */
 
-#ifndef _NETSURF_CONTENT_DIRLIST_H_
-#define _NETSURF_CONTENT_DIRLIST_H_
+#ifndef _GREYHOUND_CONTENT_DIRLIST_H_
+#define _GREYHOUND_CONTENT_DIRLIST_H_
 
 #include <stdbool.h>
 

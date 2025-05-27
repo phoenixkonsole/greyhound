@@ -32,8 +32,8 @@
  * drive letter and a \\ as a separator.
  */
 
-#ifndef NETSURF_UTILS_FILE_H
-#define NETSURF_UTILS_FILE_H
+#ifndef GREYHOUND_UTILS_FILE_H
+#define GREYHOUND_UTILS_FILE_H
 
 #include <stdarg.h>
 

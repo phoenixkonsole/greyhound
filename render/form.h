@@ -22,8 +22,8 @@
  * Form handling functions (interface).
  */
 
-#ifndef _NETSURF_RENDER_FORM_H_
-#define _NETSURF_RENDER_FORM_H_
+#ifndef _GREYHOUND_RENDER_FORM_H_
+#define _GREYHOUND_RENDER_FORM_H_
 
 #include <stdbool.h>
 #include "desktop/browser.h"

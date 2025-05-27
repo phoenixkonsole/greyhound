@@ -18,8 +18,8 @@
  */
 
 
-#ifndef _NETSURF_DESKTOP_SSLCERT_VIEWER_H_
-#define _NETSURF_DESKTOP_SSLCERT_VIEWER_H_
+#ifndef _GREYHOUND_DESKTOP_SSLCERT_VIEWER_H_
+#define _GREYHOUND_DESKTOP_SSLCERT_VIEWER_H_
 
 #include <stdbool.h>
 #include <stdint.h>

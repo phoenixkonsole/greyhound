@@ -20,8 +20,8 @@
  * Interface to platform-specific gui operation tables.
  */
 
-#ifndef _NETSURF_DESKTOP_GUI_H_
-#define _NETSURF_DESKTOP_GUI_H_
+#ifndef _GREYHOUND_DESKTOP_GUI_H_
+#define _GREYHOUND_DESKTOP_GUI_H_
 
 #include <stddef.h>
 

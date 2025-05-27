@@ -20,8 +20,8 @@
  * about: URL method handler
  */
 
-#ifndef NETSURF_CONTENT_FETCHERS_FETCH_ABOUT_H
-#define NETSURF_CONTENT_FETCHERS_FETCH_ABOUT_H
+#ifndef GREYHOUND_CONTENT_FETCHERS_FETCH_ABOUT_H
+#define GREYHOUND_CONTENT_FETCHERS_FETCH_ABOUT_H
 
 nserror fetch_about_register(void);
 

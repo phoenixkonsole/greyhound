@@ -325,54 +325,54 @@ TOOLROOT := $(OBJROOT)/tools
 
 # A macro that conditionaly adds flags to the build when a feature is enabled.
 #
-# 1: Feature name (ie, NETSURF_USE_BMP -> BMP)
+# 1: Feature name (ie, GREYHOUND_USE_BMP -> BMP)
 # 2: Parameters to add to CFLAGS
 # 3: Parameters to add to LDFLAGS
 # 4: Human-readable name for the feature
 define feature_enabled
-  ifeq ($$(NETSURF_USE_$(1)),YES)
+  ifeq ($$(GREYHOUND_USE_$(1)),YES)
     CFLAGS += $(2)
     CXXFLAGS += $(2)
     LDFLAGS += $(3)
     ifneq ($(MAKECMDGOALS),clean)
-      $$(info M.CONFIG: $(4)	enabled       (NETSURF_USE_$(1) := YES))
+      $$(info M.CONFIG: $(4)	enabled       (GREYHOUND_USE_$(1) := YES))
     endif
-  else ifeq ($$(NETSURF_USE_$(1)),NO)
+  else ifeq ($$(GREYHOUND_USE_$(1)),NO)
     ifneq ($(MAKECMDGOALS),clean)
-      $$(info M.CONFIG: $(4)	disabled      (NETSURF_USE_$(1) := NO))
+      $$(info M.CONFIG: $(4)	disabled      (GREYHOUND_USE_$(1) := NO))
     endif
   else
-    $$(info M.CONFIG: $(4)	error         (NETSURF_USE_$(1) := $$(NETSURF_USE_$(1))))
-    $$(error NETSURF_USE_$(1) must be YES or NO)
+    $$(info M.CONFIG: $(4)	error         (GREYHOUND_USE_$(1) := $$(GREYHOUND_USE_$(1))))
+    $$(error GREYHOUND_USE_$(1) must be YES or NO)
   endif
 endef
 
 # A macro that conditionaly adds flags to the build with a uniform display.
 #
-# 1: Feature name (ie, NETSURF_USE_BMP -> BMP)
+# 1: Feature name (ie, GREYHOUND_USE_BMP -> BMP)
 # 2: Human-readable name for the feature
 # 3: Parameters to add to CFLAGS when enabled
 # 4: Parameters to add to LDFLAGS when enabled
 # 5: Parameters to add to CFLAGS when disabled
 # 6: Parameters to add to LDFLAGS when disabled
 define feature_switch
-  ifeq ($$(NETSURF_USE_$(1)),YES)
+  ifeq ($$(GREYHOUND_USE_$(1)),YES)
     CFLAGS += $(3)
     CXXFLAGS += $(3)
     LDFLAGS += $(4)
     ifneq ($(MAKECMDGOALS),clean)
-      $$(info M.CONFIG: $(2)	enabled       (NETSURF_USE_$(1) := YES))
+      $$(info M.CONFIG: $(2)	enabled       (GREYHOUND_USE_$(1) := YES))
     endif
-  else ifeq ($$(NETSURF_USE_$(1)),NO)
+  else ifeq ($$(GREYHOUND_USE_$(1)),NO)
     CFLAGS += $(5)
     CXXFLAGS += $(5)
     LDFLAGS += $(6)
     ifneq ($(MAKECMDGOALS),clean)
-      $$(info M.CONFIG: $(2)	disabled      (NETSURF_USE_$(1) := NO))
+      $$(info M.CONFIG: $(2)	disabled      (GREYHOUND_USE_$(1) := NO))
     endif
   else
-    $$(info M.CONFIG: $(4)	error         (NETSURF_USE_$(1) := $$(NETSURF_USE_$(1))))
-    $$(error NETSURF_USE_$(1) must be YES or NO)
+    $$(info M.CONFIG: $(4)	error         (GREYHOUND_USE_$(1) := $$(GREYHOUND_USE_$(1))))
+    $$(error GREYHOUND_USE_$(1) must be YES or NO)
   endif
 endef
 
@@ -404,7 +404,7 @@ endef
 
 # Extend flags with appropriate values from pkg-config for enabled features
 #
-# 1: Feature name (ie, NETSURF_USE_RSVG -> RSVG)
+# 1: Feature name (ie, GREYHOUND_USE_RSVG -> RSVG)
 # 2: pkg-config required modules for feature
 # 3: Human-readable name for the feature
 define pkg_config_find_and_add_enabled
@@ -412,45 +412,45 @@ define pkg_config_find_and_add_enabled
     $$(error pkg-config is required to auto-detect feature availability)
   endif
 
-  NETSURF_FEATURE_$(1)_AVAILABLE := $$(shell $$(PKG_CONFIG) --exists $(2) && echo yes)
+  GREYHOUND_FEATURE_$(1)_AVAILABLE := $$(shell $$(PKG_CONFIG) --exists $(2) && echo yes)
 
-  ifeq ($$(NETSURF_USE_$(1)),YES)
-    ifeq ($$(NETSURF_FEATURE_$(1)_AVAILABLE),yes)
-      CFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(NETSURF_FEATURE_$(1)_CFLAGS)
-      CXXFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(NETSURF_FEATURE_$(1)_CFLAGS)
-      LDFLAGS += $$(shell $$(PKG_CONFIG) --libs $(2)) $$(NETSURF_FEATURE_$(1)_LDFLAGS)
+  ifeq ($$(GREYHOUND_USE_$(1)),YES)
+    ifeq ($$(GREYHOUND_FEATURE_$(1)_AVAILABLE),yes)
+      CFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(GREYHOUND_FEATURE_$(1)_CFLAGS)
+      CXXFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(GREYHOUND_FEATURE_$(1)_CFLAGS)
+      LDFLAGS += $$(shell $$(PKG_CONFIG) --libs $(2)) $$(GREYHOUND_FEATURE_$(1)_LDFLAGS)
       ifneq ($(MAKECMDGOALS),clean)
-        $$(info M.CONFIG: $(3) ($(2))	enabled       (NETSURF_USE_$(1) := YES))
+        $$(info M.CONFIG: $(3) ($(2))	enabled       (GREYHOUND_USE_$(1) := YES))
       endif
     else
       ifneq ($(MAKECMDGOALS),clean)
-        $$(info M.CONFIG: $(3) ($(2))	failed        (NETSURF_USE_$(1) := YES))
+        $$(info M.CONFIG: $(3) ($(2))	failed        (GREYHOUND_USE_$(1) := YES))
         $$(error Unable to find library for: $(3) ($(2)))
       endif
     endif
-  else ifeq ($$(NETSURF_USE_$(1)),AUTO)
-    ifeq ($$(NETSURF_FEATURE_$(1)_AVAILABLE),yes)
-      CFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(NETSURF_FEATURE_$(1)_CFLAGS)
-      CXXFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(NETSURF_FEATURE_$(1)_CFLAGS)
-      LDFLAGS += $$(shell $$(PKG_CONFIG) --libs $(2)) $$(NETSURF_FEATURE_$(1)_LDFLAGS)
+  else ifeq ($$(GREYHOUND_USE_$(1)),AUTO)
+    ifeq ($$(GREYHOUND_FEATURE_$(1)_AVAILABLE),yes)
+      CFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(GREYHOUND_FEATURE_$(1)_CFLAGS)
+      CXXFLAGS += $$(shell $$(PKG_CONFIG) --cflags $(2)) $$(GREYHOUND_FEATURE_$(1)_CFLAGS)
+      LDFLAGS += $$(shell $$(PKG_CONFIG) --libs $(2)) $$(GREYHOUND_FEATURE_$(1)_LDFLAGS)
       ifneq ($(MAKECMDGOALS),clean)
-        $$(info M.CONFIG: $(3) ($(2))	auto-enabled  (NETSURF_USE_$(1) := AUTO))
-	NETSURF_USE_$(1) := YES
+        $$(info M.CONFIG: $(3) ($(2))	auto-enabled  (GREYHOUND_USE_$(1) := AUTO))
+	GREYHOUND_USE_$(1) := YES
       endif
     else
       ifneq ($(MAKECMDGOALS),clean)
-        $$(info M.CONFIG: $(3) ($(2))	auto-disabled (NETSURF_USE_$(1) := AUTO))
-	NETSURF_USE_$(1) := NO
+        $$(info M.CONFIG: $(3) ($(2))	auto-disabled (GREYHOUND_USE_$(1) := AUTO))
+	GREYHOUND_USE_$(1) := NO
       endif
     endif
-  else ifeq ($$(NETSURF_USE_$(1)),NO)
+  else ifeq ($$(GREYHOUND_USE_$(1)),NO)
     ifneq ($(MAKECMDGOALS),clean)
-      $$(info M.CONFIG: $(3) ($(2))	disabled      (NETSURF_USE_$(1) := NO))
+      $$(info M.CONFIG: $(3) ($(2))	disabled      (GREYHOUND_USE_$(1) := NO))
     endif
   else
     ifneq ($(MAKECMDGOALS),clean)
-      $$(info M.CONFIG: $(3) ($(2))	error         (NETSURF_USE_$(1) := $$(NETSURF_USE_$(1))))
-      $$(error NETSURF_USE_$(1) must be YES, NO, or AUTO)
+      $$(info M.CONFIG: $(3) ($(2))	error         (GREYHOUND_USE_$(1) := $$(GREYHOUND_USE_$(1))))
+      $$(error GREYHOUND_USE_$(1) must be YES, NO, or AUTO)
     endif
   endif
 endef
@@ -504,12 +504,12 @@ CFLAGS += -I. -I$(OBJROOT)
 CXXFLAGS += -I. -I$(OBJROOT)
 
 # export the user agent format
-CFLAGS += -DNETSURF_UA_FORMAT_STRING=\"$(NETSURF_UA_FORMAT_STRING)\"
-CXXFLAGS += -DNETSURF_UA_FORMAT_STRING=\"$(NETSURF_UA_FORMAT_STRING)\"
+CFLAGS += -DGREYHOUND_UA_FORMAT_STRING=\"$(GREYHOUND_UA_FORMAT_STRING)\"
+CXXFLAGS += -DGREYHOUND_UA_FORMAT_STRING=\"$(GREYHOUND_UA_FORMAT_STRING)\"
 
 # set the default homepage to use
-CFLAGS += -DNETSURF_HOMEPAGE=\"$(NETSURF_HOMEPAGE)\"
-CXXFLAGS += -DNETSURF_HOMEPAGE=\"$(NETSURF_HOMEPAGE)\"
+CFLAGS += -DGREYHOUND_HOMEPAGE=\"$(GREYHOUND_HOMEPAGE)\"
+CXXFLAGS += -DGREYHOUND_HOMEPAGE=\"$(GREYHOUND_HOMEPAGE)\"
 
 # ----------------------------------------------------------------------------
 # General make rules
@@ -607,7 +607,7 @@ endif
 ifeq ($(TARGET),gtk)
 	$(Q)$(TOUCH) gtk/res/toolbarIndices
 endif
-ifeq ($(NETSURF_STRIP_BINARY),YES)
+ifeq ($(GREYHOUND_STRIP_BINARY),YES)
 	$(VQ)echo "   STRIP: $(EXETARGET)"
 	$(Q)$(STRIP) $(EXETARGET)
 endif

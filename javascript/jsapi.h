@@ -20,8 +20,8 @@
  * spidermonkey jsapi compatability glue.
  */
 
-#ifndef _NETSURF_JAVASCRIPT_JSAPI_H_
-#define _NETSURF_JAVASCRIPT_JSAPI_H_
+#ifndef _GREYHOUND_JAVASCRIPT_JSAPI_H_
+#define _GREYHOUND_JAVASCRIPT_JSAPI_H_
 
 /* include the correct header */
 #ifdef WITH_MOZJS

@@ -23,11 +23,11 @@
  * Consequently, this version pair may not match the user-facing one in
  * desktop/version.c.
  */
-#define NETSURF_VERSION_MAJOR "3"
+#define GREYHOUND_VERSION_MAJOR "3"
 #if defined(CI_BUILD)
-#define NETSURF_VERSION_MINOR CI_BUILD
+#define GREYHOUND_VERSION_MINOR CI_BUILD
 #else
-#define NETSURF_VERSION_MINOR "2"
+#define GREYHOUND_VERSION_MINOR "2"
 #endif
 
 #include "utils/testament.h"
@@ -36,5 +36,5 @@ static const char * const greyhound_version = "3.2";
 static const int greyhound_version_major = 3;
 static const int greyhound_version_minor = 2;
 
-static const char version[] = "\0$VER: Greyhound 68k" NETSURF_VERSION_MAJOR "." NETSURF_VERSION_MINOR " (" __DATE__ ") port by Artur Jarosik  �2009-2014 \0";
+static const char version[] = "\0$VER: Greyhound 68k" GREYHOUND_VERSION_MAJOR "." GREYHOUND_VERSION_MINOR " (" __DATE__ ") port by Artur Jarosik  �2009-2014 \0";
 

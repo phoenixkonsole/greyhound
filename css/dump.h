@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_CSS_DUMP_H_
-#define NETSURF_CSS_DUMP_H_
+#ifndef GREYHOUND_CSS_DUMP_H_
+#define GREYHOUND_CSS_DUMP_H_
 
 #include "css/css.h"
 

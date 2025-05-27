@@ -20,8 +20,8 @@
  * Initialisation/finalisation of image handlers.
  */
 
-#ifndef NETSURF_IMAGE_IMAGE_H_
-#define NETSURF_IMAGE_IMAGE_H_
+#ifndef GREYHOUND_IMAGE_IMAGE_H_
+#define GREYHOUND_IMAGE_IMAGE_H_
 
 #include "utils/errors.h"
 

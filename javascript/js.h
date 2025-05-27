@@ -20,8 +20,8 @@
  * Interface to javascript engine functions.
  */
 
-#ifndef _NETSURF_JAVASCRIPT_JS_H_
-#define _NETSURF_JAVASCRIPT_JS_H_
+#ifndef _GREYHOUND_JAVASCRIPT_JS_H_
+#define _GREYHOUND_JAVASCRIPT_JS_H_
 
 typedef struct jscontext jscontext;
 typedef struct jsobject jsobject;
@@ -73,4 +73,4 @@ js_dom_event_add_listener(jscontext *ctx,
 			  void *js_funcval);
 
 
-#endif /* _NETSURF_JAVASCRIPT_JS_H_ */
+#endif /* _GREYHOUND_JAVASCRIPT_JS_H_ */

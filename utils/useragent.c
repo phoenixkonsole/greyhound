@@ -30,9 +30,9 @@
 
 char *core_user_agent_string = NULL;
 
-#undef NETSURF_UA_FORMAT_STRING
-#define NETSURF_UA_FORMAT_STRING "Greyhound/%d.%d (%s; %s)"
-//#define NETSURF_UA_FORMAT_STRING "Android"
+#undef GREYHOUND_UA_FORMAT_STRING
+#define GREYHOUND_UA_FORMAT_STRING "Greyhound/%d.%d (%s; %s)"
+//#define GREYHOUND_UA_FORMAT_STRING "Android"
 
 /**
  * Prepare core_user_agent_string with a string suitable for use as a
@@ -53,7 +53,7 @@ user_agent_build_string(void)
                 machine = un.machine;
         }
 
-        len = snprintf(NULL, 0, NETSURF_UA_FORMAT_STRING,
+        len = snprintf(NULL, 0, GREYHOUND_UA_FORMAT_STRING,
                        greyhound_version_major,
                        greyhound_version_minor,
                        sysname,
@@ -64,7 +64,7 @@ user_agent_build_string(void)
                 return;
         }
         snprintf(ua_string, len + 1,
-                 NETSURF_UA_FORMAT_STRING,
+                 GREYHOUND_UA_FORMAT_STRING,
                  greyhound_version_major,
                  greyhound_version_minor,
                  sysname,

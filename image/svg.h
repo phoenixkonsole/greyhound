@@ -20,8 +20,8 @@
  * Content for image/svg (interface).
  */
 
-#ifndef _NETSURF_IMAGE_SVG_H_
-#define _NETSURF_IMAGE_SVG_H_
+#ifndef _GREYHOUND_IMAGE_SVG_H_
+#define _GREYHOUND_IMAGE_SVG_H_
 
 nserror svg_init(void);
 

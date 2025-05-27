@@ -21,8 +21,8 @@
  * @brief Utility routines to obtain paths to file resources.
  */
 
-#ifndef _NETSURF_UTILS_FILEPATH_H_
-#define _NETSURF_UTILS_FILEPATH_H_
+#ifndef _GREYHOUND_UTILS_FILEPATH_H_
+#define _GREYHOUND_UTILS_FILEPATH_H_
 
 #include <stdarg.h>
 
@@ -128,4 +128,4 @@ void filepath_free_strvec(char **pathv);
 
 
 
-#endif /* _NETSURF_UTILS_FILEPATH_H_ */
+#endif /* _GREYHOUND_UTILS_FILEPATH_H_ */

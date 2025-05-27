@@ -27,8 +27,8 @@
  *   with different macro definitions so there is no guard
  */
 
-#ifndef _NETSURF_DESKTOP_OPTIONS_H_
-#define _NETSURF_DESKTOP_OPTIONS_H_
+#ifndef _GREYHOUND_DESKTOP_OPTIONS_H_
+#define _GREYHOUND_DESKTOP_OPTIONS_H_
 
 #include "desktop/plot_style.h"
 

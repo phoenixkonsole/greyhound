@@ -20,8 +20,8 @@
  * High-level resource cache (interface)
  */
 
-#ifndef NETSURF_CONTENT_HLCACHE_H_
-#define NETSURF_CONTENT_HLCACHE_H_
+#ifndef GREYHOUND_CONTENT_HLCACHE_H_
+#define GREYHOUND_CONTENT_HLCACHE_H_
 
 #include "utils/errors.h"
 #include "utils/nsurl.h"

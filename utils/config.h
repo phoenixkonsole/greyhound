@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _NETSURF_UTILS_CONFIG_H_
-#define _NETSURF_UTILS_CONFIG_H_
+#ifndef _GREYHOUND_UTILS_CONFIG_H_
+#define _GREYHOUND_UTILS_CONFIG_H_
 
 #include <stddef.h>
 #include <dirent.h>

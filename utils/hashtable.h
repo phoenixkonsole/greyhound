@@ -19,8 +19,8 @@
 /** \file
  * Write-Once hash table for string to string mappings */
 
-#ifndef _NETSURF_UTILS_HASHTABLE_H_
-#define _NETSURF_UTILS_HASHTABLE_H_
+#ifndef _GREYHOUND_UTILS_HASHTABLE_H_
+#define _GREYHOUND_UTILS_HASHTABLE_H_
 
 #include <stdbool.h>
 

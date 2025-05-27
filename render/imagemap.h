@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _NETSURF_RENDER_IMAGEMAP_H_
-#define _NETSURF_RENDER_IMAGEMAP_H_
+#ifndef _GREYHOUND_RENDER_IMAGEMAP_H_
+#define _GREYHOUND_RENDER_IMAGEMAP_H_
 
 #include <dom/dom.h>
 

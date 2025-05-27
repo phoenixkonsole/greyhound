@@ -456,7 +456,7 @@ process_cmdline(int argc, char** argv)
 	    (nsoption_charp(homepage_url)[0] != '\0')) {
 		feurl = nsoption_charp(homepage_url);
 	} else {
-		feurl = NETSURF_HOMEPAGE;
+		feurl = GREYHOUND_HOMEPAGE;
 	}
 
 	while((opt = getopt(argc, argv, "f:b:w:h:")) != -1) {
@@ -2069,7 +2069,7 @@ main(int argc, char** argv)
 		die("Greyhound operation table failed registration");
         }
 
-	respaths = fb_init_resource(NETSURF_FB_RESPATH":"NETSURF_FB_FONTPATH);
+	respaths = fb_init_resource(GREYHOUND_FB_RESPATH":"GREYHOUND_FB_FONTPATH);
 
 	/* initialise logging. Not fatal if it fails but not much we
 	 * can do about it either.

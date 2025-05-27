@@ -21,8 +21,8 @@
  * libdom utilities (implementation).
  */
 
-#ifndef NETSURF_UTILS_LIBDOM_H_
-#define NETSURF_UTILS_LIBDOM_H_
+#ifndef GREYHOUND_UTILS_LIBDOM_H_
+#define GREYHOUND_UTILS_LIBDOM_H_
 
 #include <stdbool.h>
 #include <stdio.h>

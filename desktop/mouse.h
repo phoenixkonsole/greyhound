@@ -22,8 +22,8 @@
  * Core mouse state.
  */
 
-#ifndef _NETSURF_DESKTOP_MOUSE_H_
-#define _NETSURF_DESKTOP_MOUSE_H_
+#ifndef _GREYHOUND_DESKTOP_MOUSE_H_
+#define _GREYHOUND_DESKTOP_MOUSE_H_
 
 /* Mouse state.	1 is    primary mouse button (e.g. Select on RISC OS).
  *		2 is  secondary mouse button (e.g. Adjust on RISC OS). */

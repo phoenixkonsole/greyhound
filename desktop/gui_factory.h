@@ -20,8 +20,8 @@
  * Interface to gui interface factory
  */
 
-#ifndef _NETSURF_DESKTOP_GUI_FACTORY_H_
-#define _NETSURF_DESKTOP_GUI_FACTORY_H_
+#ifndef _GREYHOUND_DESKTOP_GUI_FACTORY_H_
+#define _GREYHOUND_DESKTOP_GUI_FACTORY_H_
 
 #include "desktop/gui.h"
 

@@ -20,8 +20,8 @@
  * Content for text/html (private data).
  */
 
-#ifndef NETSURF_RENDER_HTML_INTERNAL_H_
-#define NETSURF_RENDER_HTML_INTERNAL_H_
+#ifndef GREYHOUND_RENDER_HTML_INTERNAL_H_
+#define GREYHOUND_RENDER_HTML_INTERNAL_H_
 
 #include "content/content_protected.h"
 #include "desktop/selection.h"

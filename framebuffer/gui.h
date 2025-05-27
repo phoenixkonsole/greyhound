@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETSURF_FB_GUI_H
-#define NETSURF_FB_GUI_H
+#ifndef GREYHOUND_FB_GUI_H
+#define GREYHOUND_FB_GUI_H
 
 typedef struct fb_cursor_s fb_cursor_t;
 typedef struct fbtk_widget_s fbtk_widget_t;
@@ -72,7 +72,7 @@ void fb_localhistory_map(struct gui_localhistory * glh);
 void gui_resize(fbtk_widget_t *root, int width, int height);
 
 
-#endif /* NETSURF_FB_GUI_H */
+#endif /* GREYHOUND_FB_GUI_H */
 
 /*
  * Local Variables:

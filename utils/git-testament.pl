@@ -197,8 +197,8 @@ if ($oldcsum ne $newcsum) {
 
 EOS
 
-   print $NEWVALUES "#ifndef NETSURF_REVISION_TESTAMENT\n";
-   print $NEWVALUES "#define NETSURF_REVISION_TESTAMENT \"$newcsum\"\n\n";
+   print $NEWVALUES "#ifndef GREYHOUND_REVISION_TESTAMENT\n";
+   print $NEWVALUES "#define GREYHOUND_REVISION_TESTAMENT \"$newcsum\"\n\n";
    print $NEWVALUES "/* Revision testament checksum:\n";
    print $NEWVALUES " * MD5:", $newcsum,"\n */\n\n";
    print $NEWVALUES "/* Revision testament: */\n";

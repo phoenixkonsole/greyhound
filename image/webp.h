@@ -20,8 +20,8 @@
  * Content for image/webp (libwebp interface).
  */
 
-#ifndef _NETSURF_WEBP_H_
-#define _NETSURF_WEBP_H_
+#ifndef _GREYHOUND_WEBP_H_
+#define _GREYHOUND_WEBP_H_
 
 nserror webp_init(void);
 

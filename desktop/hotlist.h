@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
  
-#ifndef _NETSURF_DESKTOP_HOTLIST_H_
-#define _NETSURF_DESKTOP_HOTLIST_H_
+#ifndef _GREYHOUND_DESKTOP_HOTLIST_H_
+#define _GREYHOUND_DESKTOP_HOTLIST_H_
 
 #include <stdbool.h>
 #include <stdint.h>

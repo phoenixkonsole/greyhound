@@ -23,8 +23,8 @@
  * Textual input handling (interface)
  */
 
-#ifndef _NETSURF_DESKTOP_TEXTINPUT_H_
-#define _NETSURF_DESKTOP_TEXTINPUT_H_
+#ifndef _GREYHOUND_DESKTOP_TEXTINPUT_H_
+#define _GREYHOUND_DESKTOP_TEXTINPUT_H_
 
 enum input_key {
 

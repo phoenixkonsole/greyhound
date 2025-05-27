@@ -178,7 +178,7 @@ bool fb_font_init(void)
 	/* Start with the sans serif font */
 	fb_face = fb_new_face(nsoption_charp(fb_face_sans_serif),
 			      "sans_serif.ttf",
-			      NETSURF_FB_FONT_SANS_SERIF);
+			      GREYHOUND_FB_FONT_SANS_SERIF);
 	if (fb_face == NULL) {
 		/* The sans serif font is the default and must be found. */
                 LOG(("Could not find the default font"));
@@ -192,7 +192,7 @@ bool fb_font_init(void)
 	/* Bold sans serif face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_sans_serif_bold),
                             "sans_serif_bold.ttf",
-                            NETSURF_FB_FONT_SANS_SERIF_BOLD);
+                            GREYHOUND_FB_FONT_SANS_SERIF_BOLD);
 	if (fb_face == NULL) {
 		/* seperate bold face unavailabe use the normal weight version */
 		fb_faces[FB_FACE_SANS_SERIF_BOLD] = fb_faces[FB_FACE_SANS_SERIF];
@@ -203,7 +203,7 @@ bool fb_font_init(void)
 	/* Italic sans serif face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_sans_serif_italic),
 			      "sans_serif_italic.ttf",
-			      NETSURF_FB_FONT_SANS_SERIF_ITALIC);
+			      GREYHOUND_FB_FONT_SANS_SERIF_ITALIC);
 	if (fb_face == NULL) {
 		/* seperate italic face unavailabe use the normal weight version */
 		fb_faces[FB_FACE_SANS_SERIF_ITALIC] = fb_faces[FB_FACE_SANS_SERIF];
@@ -214,7 +214,7 @@ bool fb_font_init(void)
 	/* Bold italic sans serif face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_sans_serif_italic_bold), 
 			      "sans_serif_italic_bold.ttf",
-			      NETSURF_FB_FONT_SANS_SERIF_ITALIC_BOLD);
+			      GREYHOUND_FB_FONT_SANS_SERIF_ITALIC_BOLD);
 	if (fb_face == NULL) {
 		/* seperate italic face unavailabe use the normal weight version */
 		fb_faces[FB_FACE_SANS_SERIF_ITALIC_BOLD] = fb_faces[FB_FACE_SANS_SERIF];
@@ -225,7 +225,7 @@ bool fb_font_init(void)
 	/* serif face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_serif),
                             "serif.ttf",
-			      NETSURF_FB_FONT_SERIF);
+			      GREYHOUND_FB_FONT_SERIF);
 	if (fb_face == NULL) {
 		/* serif face unavailabe use the default */
 		fb_faces[FB_FACE_SERIF] = fb_faces[FB_FACE_SANS_SERIF];
@@ -236,7 +236,7 @@ bool fb_font_init(void)
 	/* bold serif face*/
 	fb_face = fb_new_face(nsoption_charp(fb_face_serif_bold),
 			      "serif_bold.ttf",
-			      NETSURF_FB_FONT_SERIF_BOLD);
+			      GREYHOUND_FB_FONT_SERIF_BOLD);
 	if (fb_face == NULL) {
 		/* bold serif face unavailabe use the normal weight */
 		fb_faces[FB_FACE_SERIF_BOLD] = fb_faces[FB_FACE_SERIF];
@@ -248,7 +248,7 @@ bool fb_font_init(void)
 	/* monospace face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_monospace),
 			      "monospace.ttf",
-			      NETSURF_FB_FONT_MONOSPACE);
+			      GREYHOUND_FB_FONT_MONOSPACE);
 	if (fb_face == NULL) {
 		/* serif face unavailabe use the default */
 		fb_faces[FB_FACE_MONOSPACE] = fb_faces[FB_FACE_SANS_SERIF];
@@ -259,7 +259,7 @@ bool fb_font_init(void)
 	/* bold monospace face*/
 	fb_face = fb_new_face(nsoption_charp(fb_face_monospace_bold),
 			      "monospace_bold.ttf",
-			      NETSURF_FB_FONT_MONOSPACE_BOLD);
+			      GREYHOUND_FB_FONT_MONOSPACE_BOLD);
 	if (fb_face == NULL) {
 		/* bold serif face unavailabe use the normal weight */
 		fb_faces[FB_FACE_MONOSPACE_BOLD] = fb_faces[FB_FACE_MONOSPACE];
@@ -270,7 +270,7 @@ bool fb_font_init(void)
 	/* cursive face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_cursive),
 			      "cursive.ttf",
-			      NETSURF_FB_FONT_CURSIVE);
+			      GREYHOUND_FB_FONT_CURSIVE);
 	if (fb_face == NULL) {
 		/* cursive face unavailabe use the default */
 		fb_faces[FB_FACE_CURSIVE] = fb_faces[FB_FACE_SANS_SERIF];
@@ -281,7 +281,7 @@ bool fb_font_init(void)
 	/* fantasy face */
 	fb_face = fb_new_face(nsoption_charp(fb_face_fantasy),
 			      "fantasy.ttf",
-			      NETSURF_FB_FONT_FANTASY);
+			      GREYHOUND_FB_FONT_FANTASY);
 	if (fb_face == NULL) {
 		/* fantasy face unavailabe use the default */
 		fb_faces[FB_FACE_FANTASY] = fb_faces[FB_FACE_SANS_SERIF];

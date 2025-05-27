@@ -23,8 +23,8 @@
  * The content functions manipulate struct contents, which correspond to URLs.
  */
 
-#ifndef _NETSURF_CONTENT_CONTENT_PROTECTED_H_
-#define _NETSURF_CONTENT_CONTENT_PROTECTED_H_
+#ifndef _GREYHOUND_CONTENT_CONTENT_PROTECTED_H_
+#define _GREYHOUND_CONTENT_CONTENT_PROTECTED_H_
 
 #include <stdint.h>
 #include <time.h>

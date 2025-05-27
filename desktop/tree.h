@@ -21,8 +21,8 @@
  * deprecated compatibility layer for new treeview modules.  Do not use.
  */
 
-#ifndef _NETSURF_DESKTOP_TREE_H_
-#define _NETSURF_DESKTOP_TREE_H_
+#ifndef _GREYHOUND_DESKTOP_TREE_H_
+#define _GREYHOUND_DESKTOP_TREE_H_
 
 #include <stdbool.h>
 #include <stdint.h>

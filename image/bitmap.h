@@ -50,8 +50,8 @@
  * }
  */
 
-#ifndef _NETSURF_IMAGE_BITMAP_H_
-#define _NETSURF_IMAGE_BITMAP_H_
+#ifndef _GREYHOUND_IMAGE_BITMAP_H_
+#define _GREYHOUND_IMAGE_BITMAP_H_
 
 #include <stdbool.h>
 #include <stdlib.h>

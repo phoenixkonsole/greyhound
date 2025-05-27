@@ -20,8 +20,8 @@
  * Plotter styles.
  */
 
-#ifndef _NETSURF_DESKTOP_PLOT_STYLE_H_
-#define _NETSURF_DESKTOP_PLOT_STYLE_H_
+#ifndef _GREYHOUND_DESKTOP_PLOT_STYLE_H_
+#define _GREYHOUND_DESKTOP_PLOT_STYLE_H_
 
 #include <stdint.h>
 

@@ -21,8 +21,8 @@
  * Content for image/bmp (interface).
  */
 
-#ifndef _NETSURF_IMAGE_BMP_H_
-#define _NETSURF_IMAGE_BMP_H_
+#ifndef _GREYHOUND_IMAGE_BMP_H_
+#define _GREYHOUND_IMAGE_BMP_H_
 
 #include <libnsbmp.h>
 

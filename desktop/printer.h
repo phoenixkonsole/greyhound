@@ -21,8 +21,8 @@
  * initialization, handling pages and cleaning up.
 */
 
-#ifndef NETSURF_DESKTOP_PRINTER_H
-#define NETSURF_DESKTOP_PRINTER_H
+#ifndef GREYHOUND_DESKTOP_PRINTER_H
+#define GREYHOUND_DESKTOP_PRINTER_H
 
 #include "desktop/plotters.h"
 #include "desktop/print.h"

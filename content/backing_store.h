@@ -20,8 +20,8 @@
  * Low-level source data cache backing store interface
  */
 
-#ifndef NETSURF_CONTENT_LLCACHE_PRIVATE_H_
-#define NETSURF_CONTENT_LLCACHE_PRIVATE_H_
+#ifndef GREYHOUND_CONTENT_LLCACHE_PRIVATE_H_
+#define GREYHOUND_CONTENT_LLCACHE_PRIVATE_H_
 
 #include "content/llcache.h"
 

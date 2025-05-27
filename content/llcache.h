@@ -20,8 +20,8 @@
  * Low-level resource cache (interface)
  */
 
-#ifndef NETSURF_CONTENT_LLCACHE_H_
-#define NETSURF_CONTENT_LLCACHE_H_
+#ifndef GREYHOUND_CONTENT_LLCACHE_H_
+#define GREYHOUND_CONTENT_LLCACHE_H_
 
 #include <stdbool.h>
 #include <stddef.h>

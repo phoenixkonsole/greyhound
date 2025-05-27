@@ -21,8 +21,8 @@
   * Font handling in Haru pdf documents (interface).
   */
  
-#ifndef _NETSURF_RENDER_FONT_HARU_H_
-#define _NETSURF_RENDER_FONT_HARU_H_
+#ifndef _GREYHOUND_RENDER_FONT_HARU_H_
+#define _GREYHOUND_RENDER_FONT_HARU_H_
 
 #include <hpdf.h>
 

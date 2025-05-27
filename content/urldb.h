@@ -20,8 +20,8 @@
  * Unified URL information database (interface)
  */
 
-#ifndef _NETSURF_CONTENT_URLDB_H_
-#define _NETSURF_CONTENT_URLDB_H_
+#ifndef _GREYHOUND_CONTENT_URLDB_H_
+#define _GREYHOUND_CONTENT_URLDB_H_
 
 #include <stdbool.h>
 #include <time.h>

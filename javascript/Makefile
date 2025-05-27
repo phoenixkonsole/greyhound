@@ -42,11 +42,11 @@ $(3): $(2)
 endef
 
 # Javascript sources
-ifeq ($(NETSURF_USE_JS),YES)
+ifeq ($(GREYHOUND_USE_JS),YES)
 WANT_JS_SOURCE := YES
 endif
 
-ifeq ($(NETSURF_USE_MOZJS),YES)
+ifeq ($(GREYHOUND_USE_MOZJS),YES)
 WANT_JS_SOURCE := YES
 endif
 
