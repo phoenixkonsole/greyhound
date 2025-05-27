@@ -19,6 +19,9 @@
  */
 
 #include <locale.h>
+#ifndef LC_ALL
+#define LC_ALL 0
+#endif
 #include <signal.h>
 #include <stdbool.h>
 #include <stdio.h>

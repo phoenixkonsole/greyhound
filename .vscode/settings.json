@@ -5,6 +5,11 @@
     "files.associations": {
         "libwapcaplet.h": "c",
         "stdio.h": "c",
-        "urldb.h": "c"
+        "urldb.h": "c",
+        "hlcache.h": "c",
+        "plotters.h": "c",
+        "content.h": "c",
+        "browser_private.h": "c",
+        "messages.h": "c"
     }
 }

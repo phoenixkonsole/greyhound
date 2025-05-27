@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "94463e80369cf7c8b510d60e1a41439e"
+#define GREYHOUND_REVISION_TESTAMENT "58f343f05bc3d305d38009a0444ca95a"
 
 /* Revision testament checksum:
- * MD5:94463e80369cf7c8b510d60e1a41439e
+ * MD5:58f343f05bc3d305d38009a0444ca95a
  */
 
 /* Revision testament: */
@@ -21,20 +21,36 @@
 #define WT_HOSTNAME "38c5d9904b87"
 #define WT_COMPILEDATE "27.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "5c3fa65f2e903c8e564b7d264f3220816c12a799"
-#define WT_MODIFIED 11
+#define WT_REVID "e7c6c868505f4c2400ac4e18a0fa23393fb42931"
+#define WT_MODIFIED 27
 #define WT_MODIFICATIONS {\
-  { ".DS_Store", " M" }, \
   { ".vscode/settings.json", " M" }, \
-  { "build-windows-amigaos3/content_fetchers_curl.o", "??" }, \
-  { "build-windows-amigaos3/content_fetchers_data.o", "??" }, \
+  { "Makefile.config", " M" }, \
+  { "build-windows-amigaos3/content_fetchers_file.o", "??" }, \
+  { "build-windows-amigaos3/content_fetchers_resource.o", "??" }, \
+  { "build-windows-amigaos3/content_fs_backing_store.o", "??" }, \
+  { "build-windows-amigaos3/content_hlcache.o", "??" }, \
+  { "build-windows-amigaos3/content_llcache.o", "??" }, \
+  { "build-windows-amigaos3/content_mimesniff.o", "??" }, \
+  { "build-windows-amigaos3/content_no_backing_store.o", "??" }, \
+  { "build-windows-amigaos3/content_urldb.o", "??" }, \
+  { "build-windows-amigaos3/css_css.o", "??" }, \
+  { "build-windows-amigaos3/css_dump.o", "??" }, \
+  { "build-windows-amigaos3/css_internal.o", "??" }, \
+  { "build-windows-amigaos3/css_select.o", "??" }, \
+  { "build-windows-amigaos3/css_utils.o", "??" }, \
+  { "build-windows-amigaos3/desktop_browser.o", "??" }, \
+  { "build-windows-amigaos3/desktop_browser_history.o", "??" }, \
+  { "build-windows-amigaos3/desktop_cookie_manager.o", "??" }, \
+  { "build-windows-amigaos3/desktop_download.o", "??" }, \
+  { "build-windows-amigaos3/desktop_frames.o", "??" }, \
+  { "build-windows-amigaos3/desktop_global_history.o", "??" }, \
   { "build-windows-amigaos3/testament.h", " M" }, \
   { "content/fetchers/file.c", " M" }, \
-  { "libopenssl68k/src/.DS_Store", "??" }, \
-  { "libopenssl68k/src/crypto/LPdir_unix.c", " M" }, \
-  { "libopenssl68k/src/crypto/o_time.c", " M" }, \
-  { "openssl/", "??" }, \
-  { "utils/config.h", " M" } \
+  { "desktop/browser_history.c", " M" }, \
+  { "desktop/global_history.c", " M" }, \
+  { "desktop/greyhound.c", " M" }, \
+  { "utils/utils_utils.c", " M" } \
 }
 
 #endif

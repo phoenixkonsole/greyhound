@@ -25,8 +25,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
-
+#include </opt/m68k-amigaos/m68k-amigaos/sys-include/time.h>
 #include "content/content.h"
 #include "content/hlcache.h"
 #include "content/urldb.h"
@@ -232,9 +231,9 @@ static int browser_window_history__layout_subtree(struct history *history,
 
 static void browser_window_history__layout(struct history *history)
 {
-	time_t t = time(0);
-	struct tm *tp = localtime(&t);
-	bool shuffle = tp->tm_mon == 3 && tp->tm_mday == 1;
+	time_t t = time(NULL);
+struct tm *tp = localtime(&t);
+bool shuffle = tp && tp->tm_mon == 3 && tp->tm_mday == 1;
 
 	if (!history)
 		return;

@@ -19,7 +19,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-
+#include </opt/m68k-amigaos/m68k-amigaos/sys-include/time.h>
 #include "utils/messages.h"
 #include "utils/utils.h"
 #include "utils/utf8.h"

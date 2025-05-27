@@ -20,6 +20,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <sys/time.h>
+#include <time.h>
 #include <assert.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -28,7 +30,6 @@
 #include <strings.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <sys/time.h>
 #include <regex.h>
 #include <time.h>
 
