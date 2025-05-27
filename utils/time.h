@@ -25,7 +25,7 @@
 #define _GREYHOUND_UTILS_TIME_H_
 
 #include <stddef.h>
-#include <time.h>
+#include <sys/time.h>
 #include "utils/errors.h"
 
 /**
