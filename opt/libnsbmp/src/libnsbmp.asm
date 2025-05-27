@@ -1,0 +1,1 @@
+	idnt	"libnsbmp.c"

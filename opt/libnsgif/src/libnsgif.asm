@@ -1,0 +1,1 @@
+	idnt	"libnsgif.c"
