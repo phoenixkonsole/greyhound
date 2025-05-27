@@ -586,15 +586,16 @@ S_COMMON := $(S_CONTENT) $(S_FETCHERS) $(S_CSS)	$(S_RENDER) $(S_UTILS) \
 # Force exapnsion of source file list
 SOURCES := $(SOURCES)
 
+ifeq ($(SOURCES),)
+$(error Unable to build Greyhound, could not determine set of sources to build)
+endif
+
+# AmigaOS3: Unbrauchbare Dateien entfernen (z. B. wegen <dirent.h>)
 SOURCES := $(filter-out \
   framebuffer/thumbnail.c \
   framebuffer/localhistory.c \
   framebuffer/schedule.c \
 ,$(SOURCES))
-
-ifeq ($(SOURCES),)
-$(error Unable to build Greyhound, could not determine set of sources to build)
-endif
 
 OBJECTS := $(sort $(addprefix $(OBJROOT)/,$(subst /,_,$(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(patsubst %.m,%.o,$(patsubst %.s,%.o,$(SOURCES))))))))
 
