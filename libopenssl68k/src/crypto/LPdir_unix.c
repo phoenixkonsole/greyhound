@@ -30,7 +30,9 @@
 #include <limits.h>
 #include <string.h>
 #include <sys/types.h>
+#ifndef NO_DIRENT
 #include <dirent.h>
+#endif
 #include <errno.h>
 #ifndef LPDIR_H
 #include "LPdir.h"

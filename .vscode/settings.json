@@ -3,6 +3,8 @@
         "editor.rulers": []
     },
     "files.associations": {
-        "libwapcaplet.h": "c"
+        "libwapcaplet.h": "c",
+        "stdio.h": "c",
+        "urldb.h": "c"
     }
 }

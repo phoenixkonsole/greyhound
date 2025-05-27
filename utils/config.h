@@ -20,6 +20,8 @@
 #define _GREYHOUND_UTILS_CONFIG_H_
 
 #include <stddef.h>
+#include <time.h>
+
 /* #include <proto/dos.h>
 #include <dos/dos.h>
 

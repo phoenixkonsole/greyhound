@@ -19,7 +19,7 @@
 /* file: URL handling. Based on the data fetcher by Rob Kendrick */
 
 #include "utils/config.h"
-
+#include <stdint.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -30,6 +30,7 @@
 #include <inttypes.h>
 #include <string.h>
 #include <strings.h>
+#include <sys/time.h>
 #include <time.h>
 #include <stdio.h>
 #include <proto/dos.h>
@@ -59,6 +60,11 @@
 #include "content/fetchers.h"
 #include "content/urldb.h"
 #include "content/fetchers/file.h"
+
+#ifdef __amigaos__
+#define NO_DIRENT
+#include <dos/exall.h>
+#endif
 
 /* Maximum size of read buffer */
 #define FETCH_FILE_MAX_BUF_SIZE (1024 * 1024)
@@ -493,119 +499,141 @@ static char *gen_nice_title(char *path)
 	return title;
 }
 
-/**
- * generate an output row of the directory listing.
- *
- * @param ent current directory entry.
- */
-static nserror
-process_dir_ent(struct fetch_file_context *ctx,
-		 struct dirent *ent,
-		 bool even,
-		 char *buffer,
-		 size_t buffer_len)
+#include <proto/dos.h>
+#include <dos/dos.h>
+#include <dos/dosextens.h>
+#include <exec/memory.h>
+#include <clib/alib_protos.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+static void fetch_file_process_dir(struct fetch_file_context *ctx, struct stat *fdstat)
 {
-	nserror ret;
-	char *urlpath = NULL; /* buffer for leaf entry path */
-	struct stat ent_stat; /* stat result of leaf entry */
-	char datebuf[64]; /* buffer for date text */
-	char timebuf[64]; /* buffer for time text */
-	nsurl *url;
+    fetch_msg msg;
+    char buffer[1024];
+    bool even = false;
+    char *title;
+    nserror err;
+    nsurl *up;
 
-	/* skip hidden files */
-	if (ent->d_name[0] == '.') {
-		return NSERROR_BAD_PARAMETER;
-	}
+    struct FileInfoBlock *fib;
+    BPTR lock;
+    int more = TRUE;
 
-	ret = greyhound_mkpath(&urlpath, NULL, 2, ctx->path, ent->d_name);
-	if (ret != NSERROR_OK) {
-		return ret;
-	}
+    lock = Lock(ctx->path, SHARED_LOCK);
+    if (lock == 0) {
+        fetch_file_process_error(ctx, fetch_file_errno_to_http_code(ERROR_OBJECT_NOT_FOUND));
+        return;
+    }
 
-	if (stat(urlpath, &ent_stat) != 0) {
-		ent_stat.st_mode = 0;
-		datebuf[0] = 0;
-		timebuf[0] = 0;
-	} else {
-		/* Get date in output format */
-		if (strftime((char *)&datebuf, sizeof datebuf, "%a %d %b %Y",
-			     localtime(&ent_stat.st_mtime)) == 0) {
-			datebuf[0] = '-';
-			datebuf[1] = 0;
-		}
+    fib = AllocDosObject(DOS_FIB, NULL);
+    if (fib == NULL) {
+        UnLock(lock);
+        fetch_file_process_error(ctx, 500);
+        return;
+    }
 
-		/* Get time in output format */
-		if (strftime((char *)&timebuf, sizeof timebuf, "%H:%M",
-			     localtime(&ent_stat.st_mtime)) == 0) {
-			timebuf[0] = '-';
-			timebuf[1] = 0;
-		}
-	}
+    if (!Examine(lock, fib)) {
+        FreeDosObject(DOS_FIB, fib);
+        UnLock(lock);
+        fetch_file_process_error(ctx, 500);
+        return;
+    }
 
-	ret = guit->file->path_to_nsurl(urlpath, &url);
-	if (ret != NSERROR_OK) {
-		free(urlpath);
-		return ret;
-	}
+    fetch_set_http_code(ctx->fetchh, 200);
 
-	if (S_ISREG(ent_stat.st_mode)) {
-		/* regular file */
-		dirlist_generate_row(even,
-				     false,
-				     url,
-				     ent->d_name,
-				     guit->fetch->filetype(urlpath),
-				     ent_stat.st_size,
-				     datebuf, timebuf,
-				     buffer, buffer_len);
-	} else if (S_ISDIR(ent_stat.st_mode)) {
-		/* directory */
-		dirlist_generate_row(even,
-				     true,
-				     url,
-				     ent->d_name,
-				     messages_get("FileDirectory"),
-				     -1,
-				     datebuf, timebuf,
-				     buffer, buffer_len);
-	} else {
-		/* something else */
-		dirlist_generate_row(even,
-				     false,
-				     url,
-				     ent->d_name,
-				     "",
-				     -1,
-				     datebuf, timebuf,
-				     buffer, buffer_len);
-	}
+    if (fetch_file_send_header(ctx, "Cache-Control: no-cache"))
+        goto done;
 
-	nsurl_unref(url);
-	free(urlpath);
+    if (fetch_file_send_header(ctx, "Content-Type: text/html"))
+        goto done;
 
-	return NSERROR_OK;
-}
+    msg.type = FETCH_DATA;
+    msg.data.header_or_data.buf = (const uint8_t *)buffer;
 
-static void fetch_file_process_dir(struct fetch_file_context *ctx,
-				   struct stat *fdstat)
-{
-	fetch_msg msg;
-	char buffer[1024]; /* Output buffer */
-	bool even = false; /* formatting flag */
-	char *title; /* pretty printed title */
-	nserror err; /* result from url routines */
-	nsurl *up; /* url of parent */
+    dirlist_generate_top(buffer, sizeof buffer);
+    msg.data.header_or_data.len = strlen(buffer);
+    if (fetch_file_send_callback(&msg, ctx)) goto done;
 
-	struct dirent **listing = NULL; /* directory entry listing */
-	int i; /* directory entry index */
-	int n; /* number of directory entries */
+    title = gen_nice_title(ctx->path);
+    dirlist_generate_title(title, buffer, sizeof buffer);
+    free(title);
+    msg.data.header_or_data.len = strlen(buffer);
+    if (fetch_file_send_callback(&msg, ctx)) goto done;
 
-	n = scandir(ctx->path, &listing, 0, dir_sort_alpha);
-	if (n < 0) {
-		fetch_file_process_error(ctx,
-			fetch_file_errno_to_http_code(errno));
-		return;
-	}
+    err = nsurl_parent(ctx->url, &up);
+    if (err == NSERROR_OK) {
+        if (!nsurl_compare(ctx->url, up, NSURL_COMPLETE)) {
+            dirlist_generate_parent_link(nsurl_access(up), buffer, sizeof buffer);
+            msg.data.header_or_data.len = strlen(buffer);
+            fetch_file_send_callback(&msg, ctx);
+        }
+        nsurl_unref(up);
+        if (ctx->aborted) goto done;
+    }
+
+    dirlist_generate_headings(buffer, sizeof buffer);
+    msg.data.header_or_data.len = strlen(buffer);
+    if (fetch_file_send_callback(&msg, ctx)) goto done;
+
+    while (more) {
+        more = ExNext(lock, fib);
+        if (fib->fib_DirEntryType > 0 && fib->fib_FileName[0] != '.') {
+            // Pfad generieren
+            char *urlpath = NULL;
+            asprintf(&urlpath, "%s/%s", ctx->path, fib->fib_FileName);
+            if (!urlpath) continue;
+
+            struct stat ent_stat;
+            if (stat(urlpath, &ent_stat) != 0) {
+                ent_stat.st_mode = 0;
+            }
+
+            char datebuf[64] = "-";
+            char timebuf[64] = "-";
+            if (ent_stat.st_mtime != 0) {
+                strftime(datebuf, sizeof datebuf, "%a %d %b %Y", localtime(&ent_stat.st_mtime));
+                strftime(timebuf, sizeof timebuf, "%H:%M", localtime(&ent_stat.st_mtime));
+            }
+
+            nsurl *url;
+            if (guit->file->path_to_nsurl(urlpath, &url) == NSERROR_OK) {
+                if (fib->fib_DirEntryType > 0) {
+                    dirlist_generate_row(even, true, url, fib->fib_FileName,
+                                         messages_get("FileDirectory"), -1,
+                                         datebuf, timebuf, buffer, sizeof buffer);
+                } else {
+                    dirlist_generate_row(even, false, url, fib->fib_FileName,
+                                         guit->fetch->filetype(urlpath), ent_stat.st_size,
+                                         datebuf, timebuf, buffer, sizeof buffer);
+                }
+
+                msg.data.header_or_data.len = strlen(buffer);
+                if (fetch_file_send_callback(&msg, ctx)) {
+                    nsurl_unref(url);
+                    free(urlpath);
+                    break;
+                }
+
+                nsurl_unref(url);
+                even = !even;
+            }
+
+            free(urlpath);
+        }
+    }
+
+    dirlist_generate_bottom(buffer, sizeof buffer);
+    msg.data.header_or_data.len = strlen(buffer);
+    if (fetch_file_send_callback(&msg, ctx)) goto done;
+
+    msg.type = FETCH_FINISHED;
+    fetch_file_send_callback(&msg, ctx);
+
+done:
+    if (fib) FreeDosObject(DOS_FIB, fib);
+    if (lock) UnLock(lock);
 
 	/* fetch is going to be successful */
 	fetch_set_http_code(ctx->fetchh, 200);
@@ -777,4 +805,108 @@ nserror fetch_file_register(void)
 	};
 
 	return fetcher_add(scheme, &fetcher_ops);
+}
+static nserror process_dir_ent_amiga(struct fetch_file_context *ctx,
+                                     struct FileInfoBlock *fib,
+                                     bool even,
+                                     char *buffer,
+                                     size_t buffer_len)
+{
+    char *urlpath;
+    nsurl *url;
+    struct stat ent_stat;
+    char datebuf[64] = "-";
+    char timebuf[64] = "-";
+
+    if (asprintf(&urlpath, "%s/%s", ctx->path, fib->fib_FileName) == -1)
+        return NSERROR_NOMEM;
+
+    stat(urlpath, &ent_stat); // nicht kritisch bei Fehler
+
+    if (strftime(datebuf, sizeof datebuf, "%a %d %b %Y", localtime(&ent_stat.st_mtime)) == 0)
+        strcpy(datebuf, "-");
+    if (strftime(timebuf, sizeof timebuf, "%H:%M", localtime(&ent_stat.st_mtime)) == 0)
+        strcpy(timebuf, "-");
+
+    if (guit->file->path_to_nsurl(urlpath, &url) != NSERROR_OK) {
+        free(urlpath);
+        return NSERROR_BAD_PARAMETER;
+    }
+
+    dirlist_generate_row(even,
+                         fib->fib_DirEntryType >= 0,
+                         url,
+                         fib->fib_FileName,
+                         fib->fib_DirEntryType >= 0 ? messages_get("FileDirectory") : guit->fetch->filetype(urlpath),
+                         fib->fib_Size,
+                         datebuf, timebuf,
+                         buffer, buffer_len);
+
+    nsurl_unref(url);
+    free(urlpath);
+    return NSERROR_OK;
+}
+
+#ifndef HAVE_VASPRINTF
+int vasprintf(char **strp, const char *fmt, va_list ap)
+{
+    int size;
+    va_list ap_copy;
+
+    va_copy(ap_copy, ap);
+    size = vsnprintf(NULL, 0, fmt, ap_copy);
+    va_end(ap_copy);
+
+    if (size < 0) return -1;
+
+    *strp = malloc(size + 1);
+    if (*strp == NULL) return -1;
+
+    return vsnprintf(*strp, size + 1, fmt, ap);
+}
+#endif
+
+#ifndef HAVE_ASPRINTF
+int asprintf(char **strp, const char *fmt, ...)
+{
+    va_list ap;
+    int len;
+
+    va_start(ap, fmt);
+    len = vasprintf(strp, fmt, ap);
+    va_end(ap);
+
+    return len;
+}
+#endif
+
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int vasprintf(char **strp, const char *fmt, va_list ap)
+{
+    int size;
+    va_list ap_copy;
+    va_copy(ap_copy, ap);
+    size = vsnprintf(NULL, 0, fmt, ap_copy);
+    va_end(ap_copy);
+    if (size < 0) return -1;
+
+    *strp = malloc(size + 1);
+    if (*strp == NULL) return -1;
+
+    return vsnprintf(*strp, size + 1, fmt, ap);
+}
+
+int asprintf(char **strp, const char *fmt, ...)
+{
+    va_list ap;
+    int len;
+
+    va_start(ap, fmt);
+    len = vasprintf(strp, fmt, ap);
+    va_end(ap);
+
+    return len;
 }

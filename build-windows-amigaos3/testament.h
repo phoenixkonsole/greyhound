@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "556029f1ec7bd8947d6eef63c86cef6b"
+#define GREYHOUND_REVISION_TESTAMENT "94463e80369cf7c8b510d60e1a41439e"
 
 /* Revision testament checksum:
- * MD5:556029f1ec7bd8947d6eef63c86cef6b
+ * MD5:94463e80369cf7c8b510d60e1a41439e
  */
 
 /* Revision testament: */
@@ -21,13 +21,20 @@
 #define WT_HOSTNAME "38c5d9904b87"
 #define WT_COMPILEDATE "27.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "3c612a2842d71ae13e07ca0547edc23582c140e9"
-#define WT_MODIFIED 4
+#define WT_REVID "5c3fa65f2e903c8e564b7d264f3220816c12a799"
+#define WT_MODIFIED 11
 #define WT_MODIFICATIONS {\
-  { "build-windows-amigaos3/content_fetchers_about.o", "??" }, \
-  { "build-windows-amigaos3/testament.h", "??" }, \
-  { "content/fetchers/curl.c", " M" }, \
-  { "utils/time.h", " M" } \
+  { ".DS_Store", " M" }, \
+  { ".vscode/settings.json", " M" }, \
+  { "build-windows-amigaos3/content_fetchers_curl.o", "??" }, \
+  { "build-windows-amigaos3/content_fetchers_data.o", "??" }, \
+  { "build-windows-amigaos3/testament.h", " M" }, \
+  { "content/fetchers/file.c", " M" }, \
+  { "libopenssl68k/src/.DS_Store", "??" }, \
+  { "libopenssl68k/src/crypto/LPdir_unix.c", " M" }, \
+  { "libopenssl68k/src/crypto/o_time.c", " M" }, \
+  { "openssl/", "??" }, \
+  { "utils/config.h", " M" } \
 }
 
 #endif
