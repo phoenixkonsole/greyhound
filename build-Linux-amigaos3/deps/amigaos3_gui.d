@@ -5,7 +5,7 @@ build-Linux-amigaos3/deps/amigaos3_gui.d build-windows-amigaos3/amigaos3_gui.o: 
  /src/opt/greyhound/share/include/palette.h amigaos3/libnsfb/palette.h \
  amigaos3/libnsfb/paletteRTG.h desktop/browser_history.h \
  /src/opt/greyhound/share/include/libwapcaplet/libwapcaplet.h \
- utils/errors.h desktop/browser_private.h desktop/browser.h utils/types.h \
+ desktop/browser_private.h desktop/browser.h utils/types.h \
  desktop/plot_style.h desktop/frame_types.h desktop/mouse.h desktop/gui.h \
  desktop/plotters.h desktop/greyhound.h desktop/textinput.h \
  desktop/download.h utils/nsoption.h desktop/options.h amigaos3/options.h \

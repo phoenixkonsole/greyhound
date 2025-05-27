@@ -4,8 +4,7 @@ build-Linux-amigaos3/deps/amigaos3_fbtk_event.d build-windows-amigaos3/amigaos3_
  /src/opt/greyhound/share/include/libnsfb_plot_util.h \
  /src/opt/greyhound/share/include/libnsfb_event.h \
  /src/opt/greyhound/share/include/libnsfb_cursor.h utils/utils.h \
- utils/errors.h utils/log.h css/css.h \
- /src/opt/greyhound/share/include/libcss/libcss.h \
+ utils/log.h css/css.h /src/opt/greyhound/share/include/libcss/libcss.h \
  /src/opt/greyhound/share/include/libwapcaplet/libwapcaplet.h \
  /src/opt/greyhound/share/include/libcss/errors.h \
  /src/opt/greyhound/share/include/libcss/types.h \

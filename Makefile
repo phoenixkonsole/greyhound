@@ -595,6 +595,8 @@ SOURCES := $(filter-out \
   framebuffer/thumbnail.c \
   framebuffer/localhistory.c \
   framebuffer/schedule.c \
+  image/png.h \
+  amigaos3/loadpng.c \
 ,$(SOURCES))
 
 OBJECTS := $(sort $(addprefix $(OBJROOT)/,$(subst /,_,$(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(patsubst %.m,%.o,$(patsubst %.s,%.o,$(SOURCES))))))))

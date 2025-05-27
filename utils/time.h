@@ -25,6 +25,7 @@
 #define _GREYHOUND_UTILS_TIME_H_
 
 #include <time.h>
+#include "utils/errors.h"
 
 /**
  * Write the time in seconds since epoch to a buffer.
