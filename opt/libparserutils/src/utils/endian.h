@@ -4,6 +4,7 @@
  *                http://www.opensource.org/licenses/mit-license.php
  * Copyright 2009 John-Mark Bell <jmb@greyhound-browser.org>
  */
+#include <stdint.h>
 
 #ifndef parserutils_endian_h_
 #define parserutils_endian_h_

@@ -17,7 +17,7 @@
 #include <stdbool.h>
 #include <malloc.h>
 
-#include <sdl/sdl.h>
+#include <SDL/SDL.h>
 
 /* structure for framebuffer toolkit bitmaps  */
 struct fbtk_bitmap {

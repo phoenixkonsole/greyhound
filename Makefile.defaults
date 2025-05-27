@@ -45,7 +45,7 @@ GREYHOUND_USE_JPEG := YES
 
 # Enable Greyhound's use of libpng for displaying PNGs.
 # Valid options: YES, NO	                          (highly recommended)
-GREYHOUND_USE_PNG := YES
+GREYHOUND_USE_PNG := NO
 
 # Enable Greyhound's use of libwebp for displaying WebPs
 # Valid options: YES, NO

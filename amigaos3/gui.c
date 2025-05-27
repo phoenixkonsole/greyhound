@@ -28,7 +28,7 @@
 #include <stdlib.h>
 
 
-#include <sdl/sdl.h>
+#include <SDL/SDL.h>
 #include <libnsfb.h>
 #include <libnsfb_plot.h>
 #include <libnsfb_event.h>

@@ -17,7 +17,7 @@
 #endif
 
 #include <stdio.h>
-#include <sdl/sdl.h>
+#include <SDL/SDL.h>
 #include "palette.h"
 
 #define SIGN(x)  ((x<0) ?  -1  :  ((x>0) ? 1 : 0))

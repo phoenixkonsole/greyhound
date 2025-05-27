@@ -11,7 +11,7 @@
 #include <endian.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sdl/sdl.h>
+#include <SDL/SDL.h>
 
 #include "libnsfb.h"
 #include "libnsfb_plot.h"
