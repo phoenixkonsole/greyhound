@@ -39,6 +39,18 @@
 #include "utils/utils.h"
 
 #define JPEG_INTERNAL_OPTIONS
+
+#ifdef TRUE
+#undef TRUE
+#endif
+
+#ifdef FALSE
+#undef FALSE
+#endif
+
+#ifdef GLOBAL
+#undef GLOBAL
+#endif
 #include "jpeglib.h"
 #include "image/jpeg.h"
 

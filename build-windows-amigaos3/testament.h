@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "58f343f05bc3d305d38009a0444ca95a"
+#define GREYHOUND_REVISION_TESTAMENT "982156e046a886d53215b1d7691ed72a"
 
 /* Revision testament checksum:
- * MD5:58f343f05bc3d305d38009a0444ca95a
+ * MD5:982156e046a886d53215b1d7691ed72a
  */
 
 /* Revision testament: */
@@ -19,38 +19,66 @@
 #define GECOS "root"
 #define WT_ROOT "/src/"
 #define WT_HOSTNAME "38c5d9904b87"
-#define WT_COMPILEDATE "27.05.2025"
+#define WT_COMPILEDATE "28.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "e7c6c868505f4c2400ac4e18a0fa23393fb42931"
-#define WT_MODIFIED 27
+#define WT_REVID "c42d97ebc0ff06b58923b1c7fd8a071f1626ffc1"
+#define WT_MODIFIED 55
 #define WT_MODIFICATIONS {\
-  { ".vscode/settings.json", " M" }, \
+  { ".DS_Store", " M" }, \
   { "Makefile.config", " M" }, \
-  { "build-windows-amigaos3/content_fetchers_file.o", "??" }, \
-  { "build-windows-amigaos3/content_fetchers_resource.o", "??" }, \
-  { "build-windows-amigaos3/content_fs_backing_store.o", "??" }, \
-  { "build-windows-amigaos3/content_hlcache.o", "??" }, \
-  { "build-windows-amigaos3/content_llcache.o", "??" }, \
-  { "build-windows-amigaos3/content_mimesniff.o", "??" }, \
-  { "build-windows-amigaos3/content_no_backing_store.o", "??" }, \
-  { "build-windows-amigaos3/content_urldb.o", "??" }, \
-  { "build-windows-amigaos3/css_css.o", "??" }, \
-  { "build-windows-amigaos3/css_dump.o", "??" }, \
-  { "build-windows-amigaos3/css_internal.o", "??" }, \
-  { "build-windows-amigaos3/css_select.o", "??" }, \
-  { "build-windows-amigaos3/css_utils.o", "??" }, \
-  { "build-windows-amigaos3/desktop_browser.o", "??" }, \
-  { "build-windows-amigaos3/desktop_browser_history.o", "??" }, \
-  { "build-windows-amigaos3/desktop_cookie_manager.o", "??" }, \
-  { "build-windows-amigaos3/desktop_download.o", "??" }, \
-  { "build-windows-amigaos3/desktop_frames.o", "??" }, \
-  { "build-windows-amigaos3/desktop_global_history.o", "??" }, \
-  { "build-windows-amigaos3/testament.h", " M" }, \
-  { "content/fetchers/file.c", " M" }, \
-  { "desktop/browser_history.c", " M" }, \
-  { "desktop/global_history.c", " M" }, \
-  { "desktop/greyhound.c", " M" }, \
-  { "utils/utils_utils.c", " M" } \
+  { "build-windows-amigaos3/amigaos3_ami_version.o", " M" }, \
+  { "build-windows-amigaos3/content_fetchers_about.o", " D" }, \
+  { "build-windows-amigaos3/content_fetchers_curl.o", " D" }, \
+  { "build-windows-amigaos3/content_fetchers_data.o", " D" }, \
+  { "build-windows-amigaos3/content_fetchers_file.o", " D" }, \
+  { "build-windows-amigaos3/content_fetchers_resource.o", " D" }, \
+  { "build-windows-amigaos3/content_fs_backing_store.o", " D" }, \
+  { "build-windows-amigaos3/content_hlcache.o", " D" }, \
+  { "build-windows-amigaos3/content_llcache.o", " D" }, \
+  { "build-windows-amigaos3/content_mimesniff.o", " D" }, \
+  { "build-windows-amigaos3/content_no_backing_store.o", " D" }, \
+  { "build-windows-amigaos3/content_urldb.o", " D" }, \
+  { "build-windows-amigaos3/css_css.o", " D" }, \
+  { "build-windows-amigaos3/css_dump.o", " D" }, \
+  { "build-windows-amigaos3/css_internal.o", " D" }, \
+  { "build-windows-amigaos3/css_select.o", " D" }, \
+  { "build-windows-amigaos3/css_utils.o", " D" }, \
+  { "build-windows-amigaos3/desktop_browser.o", " D" }, \
+  { "build-windows-amigaos3/desktop_browser_history.o", " D" }, \
+  { "build-windows-amigaos3/desktop_cookie_manager.o", " D" }, \
+  { "build-windows-amigaos3/desktop_download.o", " D" }, \
+  { "build-windows-amigaos3/desktop_frames.o", " D" }, \
+  { "build-windows-amigaos3/desktop_global_history.o", " D" }, \
+  { "build-windows-amigaos3/desktop_greyhound.o", " D" }, \
+  { "build-windows-amigaos3/desktop_gui_factory.o", " D" }, \
+  { "build-windows-amigaos3/desktop_hotlist.o", " D" }, \
+  { "build-windows-amigaos3/desktop_knockout.o", " D" }, \
+  { "build-windows-amigaos3/desktop_mouse.o", " D" }, \
+  { "build-windows-amigaos3/desktop_plot_style.o", " D" }, \
+  { "build-windows-amigaos3/desktop_print.o", " D" }, \
+  { "build-windows-amigaos3/desktop_save_complete.o", " D" }, \
+  { "build-windows-amigaos3/desktop_save_text.o", " D" }, \
+  { "build-windows-amigaos3/desktop_scrollbar.o", " D" }, \
+  { "build-windows-amigaos3/desktop_search.o", " D" }, \
+  { "build-windows-amigaos3/desktop_searchweb.o", " D" }, \
+  { "build-windows-amigaos3/desktop_selection.o", " D" }, \
+  { "build-windows-amigaos3/desktop_sslcert_viewer.o", " D" }, \
+  { "build-windows-amigaos3/desktop_system_colour.o", " D" }, \
+  { "build-windows-amigaos3/desktop_textarea.o", " D" }, \
+  { "build-windows-amigaos3/desktop_textinput.o", " D" }, \
+  { "build-windows-amigaos3/desktop_thumbnail.o", " D" }, \
+  { "build-windows-amigaos3/desktop_tree.o", " D" }, \
+  { "build-windows-amigaos3/desktop_treeview.o", " D" }, \
+  { "build-windows-amigaos3/desktop_version.o", " D" }, \
+  { "build-windows-amigaos3/image_bmp.o", " D" }, \
+  { "build-windows-amigaos3/image_gif.o", " D" }, \
+  { "build-windows-amigaos3/image_ico.o", " D" }, \
+  { "build-windows-amigaos3/image_image.o", " D" }, \
+  { "build-windows-amigaos3/image_image_cache.o", " D" }, \
+  { "build-windows-amigaos3/testament.h", " D" }, \
+  { "image/jpeg.c", " M" }, \
+  { "libjpeg9/", "??" }, \
+  { "utils/filename.c", " M" } \
 }
 
 #endif
