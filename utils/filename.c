@@ -21,11 +21,12 @@
  *
  * A maximum of 2^24 files can be allocated at any point in time.
  */
-
+#include <proto/dos.h>
+#include <dos/dos.h>
+#include <dos/dosextens.h> // Für FileInfoBlock
 #include <assert.h>
 #include <sys/types.h>
 #include <proto/dos.h>
-#include <dos/dos.h>
 #include <stdbool.h>
 #include <string.h>
 #include <stdio.h>
@@ -33,6 +34,9 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <exec/memory.h>
+#include <proto/exec.h>
+
 
 #include "utils/config.h"
 #include "utils/filename.h"
@@ -230,140 +234,61 @@ void filename_flush(void)
  */
 bool filename_flush_directory(const char *folder, int depth)
 {
-	DIR *parent;
-	struct dirent *entry;
+	struct AnchorPath *ap;
+	struct FileInfoBlock *fib;
 	bool changed = false;
-	bool del;
-	int number, i;
-	int prefix = 0;
-	unsigned int prefix_mask = (0x3f << 12);
-	char child[256];
-	const char *prefix_start = NULL;
-	struct directory *dir = NULL;
 
-	/* Maximum permissible depth is 3 */
-	assert(depth <= 3);
+	ap = AllocVec(sizeof(struct AnchorPath) + 256, MEMF_CLEAR);
+	if (!ap)
+		return false;
 
-	if (depth > 0) {
-		/* Not a top-level directory, so determine the prefix
-		 * by removing the last /XX component */
-		prefix_start = folder + strlen(folder) - depth * 3 + 1;
+	fib = AllocDosObject(DOS_FIB, NULL);
+	if (!fib) {
+		FreeVec(ap);
+		return false;
 	}
 
-	/* Calculate the numeric prefix */
-	for (i = 0; i < depth; i++) {
-		number = prefix_start[1] + prefix_start[0] * 10 - START_PREFIX;
-		prefix |= (number << (12 - i * 6));
-		prefix_mask |= (0x3f << (12 - i * 6));
-		prefix_start += 3;
-	}
+	snprintf(ap->ap_Buf, 256, "%s/#?", folder);
+	ap->ap_Strlen = strlen(folder);
 
-	/* If we're flushing a leaf directory, find it in the list */
-	if (depth == 3) {
-		for (dir = root; dir; dir = dir->next) {
-			if (dir->numeric_prefix == prefix)
-				break;
-		}
+	if (!MatchFirst(ap->ap_Buf, ap)) {
+		do {
+			char child[256];
+			snprintf(child, sizeof(child), "%s/%s", folder, ap->ap_Info.fib_FileName);
 
-		if (dir == NULL)
-			return false;
-	}
-
-	parent = opendir(folder);
-
-	while ((entry = readdir(parent))) {
-	 	struct stat statbuf;
-
-		/* Ignore '.' and '..' */
-		if (strcmp(entry->d_name, ".") == 0 ||
-				strcmp(entry->d_name, "..") == 0)
-			continue;
-
-		snprintf(child, sizeof(child), "%s/%s", folder, entry->d_name);
-		child[sizeof(child) - 1] = '\0';
-
-		if (stat(child, &statbuf) == -1) {
-			LOG(("Unable to stat %s: %s", child, strerror(errno)));
-			continue;
-		}
-
-		/* first 3 depths are directories only, then files only */
-		if (depth < 3) {
-			/* Delete any unexpected files */
-			del = !S_ISDIR(statbuf.st_mode);
-		} else {
-			/* Delete any unexpected directories */
-		  	del = S_ISDIR(statbuf.st_mode);
-		}
-
-		/* check we are a file numbered '00' -> '63' */
-		if (del == false && (entry->d_name[0] >= '0') &&
-				(entry->d_name[0] <= '6') &&
-				(entry->d_name[1] >= '0') &&
-				(entry->d_name[1] <= '9') &&
-				(entry->d_name[2] == '\0')) {
-			number = atoi(entry->d_name);
-
-			if (number >= 0 && number <= 63) {
-				if (depth == 3) {
-					/* File: delete if not in bitfield */
-					if (number < 32)
-						del = !(dir->low_used &
-							(1 << number));
-					else
-						del = !(dir->high_used &
-							(1 << (number - 32)));
+			if (ap->ap_Info.fib_DirEntryType > 0) {
+				// Eintrag ist ein Verzeichnis
+				if (depth < 3) {
+					// ggf. rekursiv prüfen oder löschen
+					if (filename_flush_directory(child, depth + 1)) {
+						changed = true;
+					}
 				} else {
-					/* Directory: delete unless in list */
-					del = true;
-
-					/* Insert into numeric prefix */
-					prefix &= ~(0x3f << (12 - depth * 6));
-					prefix |= (number << (12 - depth * 6));
-
-					/* Find in dir list */
-					for (dir = root; dir; dir = dir->next) {
-						number = dir->numeric_prefix &
-								prefix_mask;
-						if (number == prefix) {
-							/* In list: retain */
-							del = false;
-							break;
-						}
+					// Tiefer als erlaubt – löschen
+					if (!DeleteFile(child)) {
+						LOG(("Failed to remove dir: %s", child));
+					} else {
+						changed = true;
 					}
 				}
 			} else {
-				/* Unexpected name: delete */
-				del = true;
+				// Eintrag ist eine Datei
+				// Hier kannst du entscheiden, ob du sie löschen willst
+				if (!DeleteFile(child)) {
+					LOG(("Failed to remove file: %s", child));
+				} else {
+					changed = true;
+				}
 			}
-		} else {
-			/* Unexpected name: delete */
-			del = true;
-		}
 
-		/* continue if this is a file we want to retain */
-		if (del == false && (!S_ISDIR(statbuf.st_mode)))
-		    	continue;
-
-		/* delete or recurse */
-		if (del) {
-			if (S_ISDIR(statbuf.st_mode))
-				filename_delete_recursive(child);
-
-			if (remove(child))
-				LOG(("Failed to remove '%s'", child));
-			else
-				changed = true;
-		} else {
-			while (filename_flush_directory(child, depth + 1));
-		}
+		} while (!MatchNext(ap));
+		MatchEnd(ap);
 	}
 
-	closedir(parent);
-
+	FreeDosObject(DOS_FIB, fib);
+	FreeVec(ap);
 	return changed;
 }
-
 
 /**
  * Recursively deletes the contents of a directory
@@ -373,43 +298,67 @@ bool filename_flush_directory(const char *folder, int depth)
  */
 bool filename_delete_recursive(char *folder)
 {
-	DIR *parent;
-	struct dirent *entry;
-	char child[256];
-	struct stat statbuf;
+	BPTR lock;
+	struct FileInfoBlock *fib;
 
-	parent = opendir(folder);
-
-	while ((entry = readdir(parent))) {
-		/* Ignore '.' and '..' */
-		if (strcmp(entry->d_name, ".") == 0 ||
-				strcmp(entry->d_name, "..") == 0)
-			continue;
-
-		snprintf(child, sizeof(child), "%s/%s", folder, entry->d_name);
-		child[sizeof(child) - 1] = '\0';
-
-		if (stat(child, &statbuf) == -1) {
-                        LOG(("Unable to stat %s: %s", child, strerror(errno)));
-			continue;
-		}
-
-		if (S_ISDIR(statbuf.st_mode)) {
-			if (!filename_delete_recursive(child)) {
-				closedir(parent);
-				return false;
-			}
-		}
-
-		if (remove(child)) {
-			LOG(("Failed to remove '%s'", child));
-			closedir(parent);
-			return false;
-		}
+	// Speicher für FileInfoBlock reservieren
+	fib = AllocVec(sizeof(struct FileInfoBlock), MEMF_CLEAR);
+	if (fib == NULL) {
+		LOG(("Failed to allocate FileInfoBlock"));
+		return false;
 	}
 
-	closedir(parent);
+	lock = Lock(folder, ACCESS_READ);
+	if (lock == 0) {
+		LOG(("Failed to lock folder: %s", folder));
+		FreeVec(fib);
+		return false;
+	}
 
+	if (Examine(lock, fib) == FALSE) {
+		LOG(("Examine failed: %s", folder));
+		UnLock(lock);
+		FreeVec(fib);
+		return false;
+	}
+
+	if (fib->fib_DirEntryType < 0) {
+		// Kein Verzeichnis
+		UnLock(lock);
+		FreeVec(fib);
+		return false;
+	}
+
+	if (ExNext(lock, fib)) {
+		do {
+			if (strcmp(fib->fib_FileName, ".") == 0 ||
+			    strcmp(fib->fib_FileName, "..") == 0)
+				continue;
+
+			char child[256];
+			snprintf(child, sizeof(child), "%s/%s", folder, fib->fib_FileName);
+
+			if (fib->fib_DirEntryType > 0) {
+				// Verzeichnis
+				if (!filename_delete_recursive(child)) {
+					UnLock(lock);
+					FreeVec(fib);
+					return false;
+				}
+			}
+
+			if (DeleteFile(child) == FALSE) {
+				LOG(("Failed to delete: %s", child));
+				UnLock(lock);
+				FreeVec(fib);
+				return false;
+			}
+
+		} while (ExNext(lock, fib));
+	}
+
+	UnLock(lock);
+	FreeVec(fib);
 	return true;
 }
 
