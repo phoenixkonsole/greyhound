@@ -25,7 +25,7 @@
 #include "image/bitmap.h"
 #include "render/font.h"
 #include "content/hlcache.h"
-
+#include "utils/utils.h"
 #include "desktop/system_colour.h"
 #include "desktop/knockout.h"
 #include "desktop/plotters.h"

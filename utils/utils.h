@@ -13,6 +13,12 @@
 
 #include "utils/errors.h"
 
+#if defined(__GNUC__) && (__GNUC__ < 3)
+#define FLEX_ARRAY_LEN_DECL 0
+#else
+#define FLEX_ARRAY_LEN_DECL 
+#endif
+
 #ifndef NOF_ELEMENTS
 #define NOF_ELEMENTS(array) (sizeof(array)/sizeof(*(array)))
 #endif
