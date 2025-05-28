@@ -20,6 +20,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <proto/dos.h>
+#include <proto/exec.h>
+#include <proto/utility.h>
+#include <dos/dos.h>
+#include <dos/exall.h>
 #include <assert.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -30,7 +35,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <regex.h>
-#include <time.h>
+#include </opt/m68k-amigaos/m68k-amigaos/sys-include/time.h>
 
 #include "utils/config.h"
 #include "utils/messages.h"
@@ -353,37 +358,63 @@ char *strndup(const char *s, size_t n)
 
 
 /* Exported interface, documented in utils.c */
-int dir_sort_alpha(const struct dirent **d1, const struct dirent **d2)
+int dir_sort_alpha(const char **d1, const char **d2)
 {
-	const char *s1 = (*d1)->d_name;
-	const char *s2 = (*d2)->d_name;
+    return strcasecmp(*d1, *d2);
+}
 
-	while (*s1 != '\0' && *s2 != '\0') {
-		if ((*s1 >= '0' && *s1 <= '9') &&
-				(*s2 >= '0' && *s2 <= '9')) {
-			int n1 = 0,  n2 = 0;
-			while (*s1 >= '0' && *s1 <= '9') {
-				n1 = n1 * 10 + (*s1) - '0';
-				s1++;
-			}
-			while (*s2 >= '0' && *s2 <= '9') {
-				n2 = n2 * 10 + (*s2) - '0';
-				s2++;
-			}
-			if (n1 != n2) {
-				return n1 - n2;
-			}
-			if (*s1 == '\0' || *s2 == '\0')
-				break;
-		}
-		if (tolower(*s1) != tolower(*s2))
-			break;
+int scandir(const char *dirname, char ***namelist,
+            int (*sel)(const char *),
+            int (*compar)(const void *, const void *))
+{
+    BPTR lock;
+    struct FileInfoBlock *fib;
+    char **entries = NULL;
+    int count = 0, alloc = 0;
 
-		s1++;
-		s2++;
-	}
+    lock = Lock((STRPTR)dirname, ACCESS_READ);
+    if (!lock)
+        return -1;
 
-	return tolower(*s1) - tolower(*s2);
+    fib = AllocDosObject(DOS_FIB, NULL);
+    if (!fib) {
+        UnLock(lock);
+        return -1;
+    }
+
+    if (Examine(lock, fib)) {
+        while (ExNext(lock, fib)) {
+            if (sel && !sel(fib->fib_FileName))
+                continue;
+
+            if (count == alloc) {
+                alloc = alloc ? alloc * 2 : 16;
+                char **tmp = realloc(entries, alloc * sizeof(char *));
+                if (!tmp) break;
+                entries = tmp;
+            }
+
+            entries[count] = strdup(fib->fib_FileName);
+            if (entries[count]) count++;
+        }
+    }
+
+    FreeDosObject(DOS_FIB, fib);
+    UnLock(lock);
+
+    if (compar && count > 1)
+        qsort(entries, count, sizeof(char *), compar);
+
+    *namelist = entries;
+    return count;
+}
+
+void free_scandir_list(char **namelist, int count)
+{
+    for (int i = 0; i < count; i++) {
+        free(namelist[i]);
+    }
+    free(namelist);
 }
 
 
