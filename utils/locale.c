@@ -17,22 +17,16 @@
  */
 
 /** \file
- * Locale-specific variants of various routines (implementation)
+ * Locale-specific variants of various routines (Amiga-compatible implementation)
  */
 
 #include <ctype.h>
-#include <locale.h>
-
 #include "utils/locale.h"
 
-/* <ctype.h> functions */
-#define MAKELSCTYPE(x) int ls_##x(int c)				\
-{									\
-	int ret;							\
-	setlocale(LC_ALL, "");						\
-	ret = x(c);							\
-	setlocale(LC_ALL, "C");						\
-	return ret;							\
+/* Direct wrappers around <ctype.h> functions, no locale handling */
+#define MAKELSCTYPE(x) \
+int ls_##x(int c) { \
+	return x(c); \
 }
 
 MAKELSCTYPE(isalpha)
@@ -50,4 +44,3 @@ MAKELSCTYPE(tolower)
 MAKELSCTYPE(toupper)
 
 #undef MAKELSCTYPE
-

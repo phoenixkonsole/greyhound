@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "24c444cb446eadd06faf027f6cc440bc"
+#define GREYHOUND_REVISION_TESTAMENT "9ad2898638d87c90031847835ee77a62"
 
 /* Revision testament checksum:
- * MD5:24c444cb446eadd06faf027f6cc440bc
+ * MD5:9ad2898638d87c90031847835ee77a62
  */
 
 /* Revision testament: */
@@ -21,11 +21,10 @@
 #define WT_HOSTNAME "38c5d9904b87"
 #define WT_COMPILEDATE "28.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "044956c5eb9481768052634782bad49f3f440bff"
-#define WT_MODIFIED 2
+#define WT_REVID "2746b1996f1524c55f2dccad87e79fffbf69639b"
+#define WT_MODIFIED 1
 #define WT_MODIFICATIONS {\
-  { "build-windows-amigaos3/testament.h", " M" }, \
-  { "utils/filename.c", " M" } \
+  { "utils/locale.c", " M" } \
 }
 
 #endif
