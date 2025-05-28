@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "cbd8cdb65b27b0f5a43c1f42e8c409af"
+#define GREYHOUND_REVISION_TESTAMENT "c00221edad5fe8885b557da30d98f707"
 
 /* Revision testament checksum:
- * MD5:cbd8cdb65b27b0f5a43c1f42e8c409af
+ * MD5:c00221edad5fe8885b557da30d98f707
  */
 
 /* Revision testament: */
@@ -21,10 +21,16 @@
 #define WT_HOSTNAME "38c5d9904b87"
 #define WT_COMPILEDATE "28.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "291bf51ec62d06293689b5040dde1b847597a92f"
-#define WT_MODIFIED 3
+#define WT_REVID "24833f029dc768e69b462a8130f4829abc3cf9e4"
+#define WT_MODIFIED 9
 #define WT_MODIFICATIONS {\
+  { "build-windows-amigaos3/amigaos3_.._framebuffer_fbtk_fbtk.o", "??" }, \
+  { "build-windows-amigaos3/amigaos3_libnsfb_plot_16bpp.o", " M" }, \
+  { "build-windows-amigaos3/amigaos3_libnsfb_plot_32bpp-xbgr8888.o", " M" }, \
+  { "build-windows-amigaos3/amigaos3_libnsfb_plot_32bpp-xrgb8888.o", " M" }, \
+  { "build-windows-amigaos3/amigaos3_libnsfb_plot_8bpp.o", " M" }, \
   { "build-windows-amigaos3/testament.h", " M" }, \
+  { "build-windows-amigaos3/utils_utils.o", " M" }, \
   { "utils/utils.c", " M" }, \
   { "utils/utils.h", " M" } \
 }

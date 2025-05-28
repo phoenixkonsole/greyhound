@@ -419,6 +419,7 @@ void free_scandir_list(char **namelist, int count)
     free(namelist);
 }
 
+
 #ifndef HAVE_STRCHRNUL
 
 /**
