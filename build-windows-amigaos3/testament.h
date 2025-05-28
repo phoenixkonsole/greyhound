@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "f9fb1e264c158260b90a6a7b70c3adac"
+#define GREYHOUND_REVISION_TESTAMENT "cbd8cdb65b27b0f5a43c1f42e8c409af"
 
 /* Revision testament checksum:
- * MD5:f9fb1e264c158260b90a6a7b70c3adac
+ * MD5:cbd8cdb65b27b0f5a43c1f42e8c409af
  */
 
 /* Revision testament: */
@@ -21,21 +21,12 @@
 #define WT_HOSTNAME "38c5d9904b87"
 #define WT_COMPILEDATE "28.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "c4cc2e8280ee102270713d7b8359fc6cdb9b4eac"
-#define WT_MODIFIED 12
+#define WT_REVID "291bf51ec62d06293689b5040dde1b847597a92f"
+#define WT_MODIFIED 3
 #define WT_MODIFICATIONS {\
-  { "Makefile.config", " M" }, \
   { "build-windows-amigaos3/testament.h", " M" }, \
-  { "build-windows-amigaos3/utils_messages.o", "??" }, \
-  { "build-windows-amigaos3/utils_nsoption.o", "??" }, \
-  { "build-windows-amigaos3/utils_nsurl.o", "??" }, \
-  { "build-windows-amigaos3/utils_punycode.o", "??" }, \
-  { "build-windows-amigaos3/utils_talloc.o", "??" }, \
-  { "build-windows-amigaos3/utils_url.o", "??" }, \
-  { "build-windows-amigaos3/utils_useragent.o", "??" }, \
-  { "build-windows-amigaos3/utils_utf8.o", "??" }, \
-  { "build-windows-amigaos3/utils_utf8proc.o", "??" }, \
-  { "utils/utils.c", " M" } \
+  { "utils/utils.c", " M" }, \
+  { "utils/utils.h", " M" } \
 }
 
 #endif
