@@ -8,10 +8,10 @@
  */
 
 #ifndef GREYHOUND_REVISION_TESTAMENT
-#define GREYHOUND_REVISION_TESTAMENT "bd505f7c656c7d9bb53748ca1deb093c"
+#define GREYHOUND_REVISION_TESTAMENT "0a99a5f595f73e01c4ff6e354f1427d0"
 
 /* Revision testament checksum:
- * MD5:bd505f7c656c7d9bb53748ca1deb093c
+ * MD5:0a99a5f595f73e01c4ff6e354f1427d0
  */
 
 /* Revision testament: */
@@ -21,75 +21,10 @@
 #define WT_HOSTNAME "38c5d9904b87"
 #define WT_COMPILEDATE "30.05.2025"
 #define WT_BRANCHPATH "main"
-#define WT_REVID "76547423c9cdb9a23e61fb039fd300f1fa69d649"
-#define WT_MODIFIED 66
+#define WT_REVID "552933c8677c7b4d49af026880ef4b0ac73aa391"
+#define WT_MODIFIED 1
 #define WT_MODIFICATIONS {\
-  { ".DS_Store", " M" }, \
-  { "Makefile.config", " M" }, \
-  { "amigalibs/", "??" }, \
-  { "amigaos3/gui.c", " M" }, \
-  { "amigaos3/gui_os3.h", " M" }, \
-  { "amigaos3/libnsfb/paletteAGA.h", " M" }, \
-  { "amigaos3/libnsfb/paletteRTG.h", " M" }, \
-  { "build-windows-amigaos3/amigaos3_.._framebuffer_fetch.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_ami_version.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_fbtk_scroll.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_fbtk_text.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_gui.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_libnsfb.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_palette.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_plot_16bpp.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_plot_32bpp-xbgr8888.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_plot_32bpp-xrgb8888.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_plot_8bpp.o", " M" }, \
-  { "build-windows-amigaos3/amigaos3_libnsfb_surface_sdl.o", " M" }, \
-  { "build-windows-amigaos3/content_fetchers_curl.o", " M" }, \
-  { "build-windows-amigaos3/content_fetchers_file.o", " M" }, \
-  { "build-windows-amigaos3/content_fs_backing_store.o", " M" }, \
-  { "build-windows-amigaos3/css_css.o", " M" }, \
-  { "build-windows-amigaos3/css_select.o", " M" }, \
-  { "build-windows-amigaos3/desktop_browser.o", " M" }, \
-  { "build-windows-amigaos3/desktop_frames.o", " M" }, \
-  { "build-windows-amigaos3/desktop_global_history.o", " M" }, \
-  { "build-windows-amigaos3/desktop_greyhound.o", " M" }, \
-  { "build-windows-amigaos3/desktop_gui_factory.o", " M" }, \
-  { "build-windows-amigaos3/desktop_hotlist.o", " M" }, \
-  { "build-windows-amigaos3/desktop_print.o", " M" }, \
-  { "build-windows-amigaos3/desktop_save_complete.o", " M" }, \
-  { "build-windows-amigaos3/desktop_save_text.o", " M" }, \
-  { "build-windows-amigaos3/desktop_selection.o", " M" }, \
-  { "build-windows-amigaos3/desktop_textinput.o", " M" }, \
-  { "build-windows-amigaos3/render_box.o", " M" }, \
-  { "build-windows-amigaos3/render_box_construct.o", " M" }, \
-  { "build-windows-amigaos3/render_box_normalise.o", " M" }, \
-  { "build-windows-amigaos3/render_box_textarea.o", " M" }, \
-  { "build-windows-amigaos3/render_form.o", " M" }, \
-  { "build-windows-amigaos3/render_html.o", " M" }, \
-  { "build-windows-amigaos3/render_html_css.o", " M" }, \
-  { "build-windows-amigaos3/render_html_css_fetcher.o", " M" }, \
-  { "build-windows-amigaos3/render_html_forms.o", " M" }, \
-  { "build-windows-amigaos3/render_html_interaction.o", " M" }, \
-  { "build-windows-amigaos3/render_html_object.o", " M" }, \
-  { "build-windows-amigaos3/render_html_redraw.o", " M" }, \
-  { "build-windows-amigaos3/render_html_script.o", " M" }, \
-  { "build-windows-amigaos3/render_imagemap.o", " M" }, \
-  { "build-windows-amigaos3/render_layout.o", " M" }, \
-  { "build-windows-amigaos3/render_search.o", " M" }, \
-  { "build-windows-amigaos3/render_table.o", " M" }, \
-  { "build-windows-amigaos3/render_textplain.o", " M" }, \
-  { "build-windows-amigaos3/testament.h", " M" }, \
-  { "build-windows-amigaos3/utils_corestrings.o", " M" }, \
-  { "build-windows-amigaos3/utils_file.o", " M" }, \
-  { "build-windows-amigaos3/utils_libdom.o", " M" }, \
-  { "framebuffer/fetch.h", " M" }, \
-  { "libjpeg9/lib/.DS_Store", "??" }, \
-  { "libopenssl68k/lib/.DS_Store", "??" }, \
-  { "opt/.DS_Store", " M" }, \
-  { "opt/greyhound/share/.DS_Store", " M" }, \
-  { "opt/greyhound/share/include/dom/core/string.h", " M" }, \
-  { "opt/greyhound/share/include/paletteRTG.h", " M" }, \
-  { "opt/libcss/src/stylesheet.h", " M" }, \
-  { "utils/file.h", " M" } \
+  { "build-windows-amigaos3/testament.h", " M" } \
 }
 
 #endif
