@@ -7,11 +7,11 @@ AmigaOS 3 related prototypes
 //static colour frame_colour;
 
 char* usunhttp(char* s);
-char *status_txt, *icon_file, *stitle;
+extern char *status_txt, *icon_file, *stitle;
 const char *add_theme_path(const char* icon);
 char *ReadClip( void );
 int WriteClip(const char * );
-int alt, ctrl, shift, x_pos, selected;
+extern int alt, ctrl, shift, x_pos, selected;
 
 unsigned short szerokosc(char *text);
 unsigned short zliczanie(char *text);
@@ -19,7 +19,7 @@ unsigned short zliczanie(char *text);
 extern struct gui_download_table *amiga_download_table;
 
 struct fbtk_bitmap *load_bitmap(const char *filename);
-struct fbtk_bitmap *favicon_bitmap;
+extern struct fbtk_bitmap *favicon_bitmap;
 
 void get_video(struct browser_window *bw);  
 void redraw_gui(void);
@@ -72,23 +72,23 @@ static fbtk_widget_t *fav10 = NULL;
 static fbtk_widget_t *fav11 = NULL;
 static fbtk_widget_t *fav12 = NULL;
 
-fbtk_widget_t *label1;
-fbtk_widget_t *label2;
-fbtk_widget_t *label3;
-fbtk_widget_t *label4;
-fbtk_widget_t *label5;
-fbtk_widget_t *label6;
-fbtk_widget_t *label7;	
-fbtk_widget_t *label8;
-fbtk_widget_t *label9;
-fbtk_widget_t *label10;
-fbtk_widget_t *label11;
-fbtk_widget_t *label12;
+extern fbtk_widget_t *label1;
+extern fbtk_widget_t *label2;
+extern fbtk_widget_t *label3;
+extern fbtk_widget_t *label4;
+extern fbtk_widget_t *label5;
+extern fbtk_widget_t *label6;
+extern fbtk_widget_t *label7;	
+extern fbtk_widget_t *label8;
+extern fbtk_widget_t *label9;
+extern fbtk_widget_t *label10;
+extern fbtk_widget_t *label11;
+extern fbtk_widget_t *label12;
 
-fbtk_widget_t *toolbar;
-fbtk_widget_t *favicon;
-fbtk_widget_t *button;
-fbtk_widget_t *url;
+extern fbtk_widget_t *toolbar;
+extern fbtk_widget_t *favicon;
+extern fbtk_widget_t *button;
+extern fbtk_widget_t *url;
 
 extern struct fbtk_bitmap throbber9;
 extern struct fbtk_bitmap throbber10;
@@ -99,7 +99,7 @@ void gui_window_redraw_window(struct gui_window *g);
 void gui_window_set_status(struct gui_window *g, const char *text);
 
 fbtk_widget_t *create_fav_widget(int nr, int xpos, int text_w, fbtk_widget_t *toolbar, struct gui_window *gw);	
-int text_w4,text_w5,text_w6,text_w7,text_w8,text_w9,text_w10,text_w11,text_w12;
+extern int text_w4, text_w5, text_w6, text_w7, text_w8, text_w9, text_w10, text_w11, text_w12;
 
 void gui_window_redraw(struct gui_window *g, int x0, int y0, int x1, int y1);
 void gui_window_hide_pointer(struct gui_window *g);

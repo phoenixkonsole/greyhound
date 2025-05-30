@@ -17,7 +17,7 @@
 #include "libnsfb.h"
 #include "libnsfb_plot.h"
 
-int Bpp;
+extern int Bpp;
 
 enum nsfb_palette_type_e {
 	NSFB_PALETTE_EMPTY,     /**< empty palette object */

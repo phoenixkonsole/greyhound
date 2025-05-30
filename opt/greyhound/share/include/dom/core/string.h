@@ -15,10 +15,9 @@
 #include <dom/functypes.h>
 #include <dom/core/exceptions.h>
 
-typedef struct dom_string dom_string;
-struct dom_string {
+typedef struct dom_string {
 	uint32_t refcnt;
-} _ALIGNED;
+} dom_string;
 
 
 /* Claim a reference on a DOM string */

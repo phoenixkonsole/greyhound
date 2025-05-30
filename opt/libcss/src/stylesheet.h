@@ -120,7 +120,7 @@ struct css_rule {
 		     index : 16,		/**< index in sheet */
 		     items :  8,		/**< # items in rule */
 		     ptype :  1;		/**< css_rule_parent_type */
-} _ALIGNED;
+} __attribute__((aligned(4)));
 
 typedef struct css_rule_selector {
 	css_rule base;

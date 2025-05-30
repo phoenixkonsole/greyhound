@@ -95,7 +95,10 @@
 #endif
 #include "amigaos3/gui_os3.h"
 
-struct fbtk_bitmap caret_image2;
+int text_w4 = 0, text_w5 = 0, text_w6 = 0, text_w7 = 0, text_w8 = 0,
+    text_w9 = 0, text_w10 = 0, text_w11 = 0, text_w12 = 0;
+
+extern struct fbtk_bitmap caret_image2;
 
 static uint8_t null_image_pixdata[] = {
 	0xff, 0xff, 0xff, 0xff, 

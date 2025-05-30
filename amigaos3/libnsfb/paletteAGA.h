@@ -17,7 +17,7 @@
 #include "libnsfb.h"
 #include "libnsfb_plot.h"
 
-int Bpp;
+extern int Bpp;
 
 /** Init error diffusion for a plot. */
 static void nsfb_palette_dither_init(struct nsfb_palette_s *palette, int width){};
