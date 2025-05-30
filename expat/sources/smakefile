@@ -1,0 +1,73 @@
+
+TARGET = expat.library
+DEST   = LIBS:
+
+C_COMPILER = sc
+C_OPTIMIZE = OPTIMIZE OPTIMIZERINLINELOCAL OPTIMIZERSCHEDULER OPTIMIZERTIME\
+OPTIMIZERCOMPLEXITY=8 OPTIMIZERDEPTH=5
+C_COMPILER_OPTS = NOSTACKCHECK STRINGMERGE NOCHECKABORT COMMENTNEST IDLEN 128 CODE=FAR
+
+LINKER = slink
+LINKER_OPTS = NOICONS ND
+
+OBJS = libinit.o init.o loc.o utils.o xmlparse.o xmlrole.o xmltok.o
+
+LIBS = LIB:sc.lib LIB:amiga.lib LIB:debug.lib
+
+# Built module
+$(TARGET): $(OBJS) $(LIBS)
+         $(LINKER) <with <
+FROM $(OBJS) TO $(TARGET) LIB $(LIBS) $(LINKER_OPTS)
+<
+
+clean:
+	delete QUIET FORCE $(OBJS)
+        delete QUIET FORCE $(TARGET)
+
+bump:
+	rx br NA $(TARGET)
+
+install:
+	copy $(TARGET) $(DEST)
+        avail flush
+
+# Rules
+.c.o:
+        $(C_COMPILER) $*.c $(C_COMPILER_OPTS)
+
+libinit.o:  libinit.c amigaconfig.h expat.library_rev.h expat.h lib_protos.h \
+            expat_external.h
+
+init.o:     init.c amigaconfig.h expat.h lib_protos.h expat_external.h
+
+loc.o:      loc.c amigaconfig.h loc.h expat.h lib_protos.h expat_external.h
+
+utils.o:    utils.c amigaconfig.h expat.h lib_protos.h expat_external.h
+
+mosstubs.o: mosstubs.c amigaconfig.h expat.h lib_protos.h expat_external.h
+
+xmlparse.o: xmlparse.c amigaconfig.h amigaconfig.h ascii.h expat.h \
+            internal.h xmltok.h xmlrole.h expat.h lib_protos.h \
+            expat.h lib_protos.h expat_external.h xmltok.h \
+            expat_external.h expat_external.h
+
+xmlrole.o:  xmlrole.c amigaconfig.h amigaconfig.h expat_external.h \
+            internal.h xmlrole.h ascii.h expat.h lib_protos.h \
+            expat.h lib_protos.h xmltok.h expat_external.h \
+            expat_external.h
+
+xmltok.o:   xmltok.c amigaconfig.h amigaconfig.h expat_external.h \
+            internal.h xmltok.h nametab.h xmltok_impl.h ascii.h \
+            xmltok_impl.c asciitab.h utf8tab.h asciitab.h utf8tab.h \
+            iasciitab.h utf8tab.h iasciitab.h utf8tab.h asciitab.h \
+            latin1tab.h asciitab.h latin1tab.h asciitab.h asciitab.h \
+            xmltok_impl.c asciitab.h latin1tab.h asciitab.h latin1tab.h \
+            iasciitab.h latin1tab.h iasciitab.h latin1tab.h xmltok_impl.c \
+            asciitab.h latin1tab.h asciitab.h latin1tab.h iasciitab.h \
+            latin1tab.h iasciitab.h latin1tab.h xmltok_ns.c xmltok_ns.c expat.h \
+            lib_protos.h expat.h lib_protos.h expat_external.h expat_external.h
+
+
+
+
+

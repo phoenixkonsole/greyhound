@@ -1,0 +1,66 @@
+
+TARGET  = expat.library
+DEST    = LIBS:
+
+CC 	= ppc-morphos-gcc
+CDEFS   = -DUSE_INLINE_STDARG
+LDFLAGS = -noixemul -nostartfiles
+CWARN   = -Wall\
+	  -Wno-missing-braces\
+	  -Wno-parentheses\
+          -Wno-switch\
+          -Wstrict-prototypes\
+	  -Werror-implicit-function-declaration\
+          -Wpointer-arith
+CFLAGS  = $(CDEFS) $(CWARN) -O2 -fomit-frame-pointer -mcpu=750 -mstring -mmultiple -noixemul -fstrict-aliasing -I../include/
+
+OBJS = libinit.o init.o loc.o utils.o xmlparse.o xmlrole.o xmltok.o mosstubs.o
+
+$(TARGET): $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS)
+	ppc-morphos-strip --strip-unneeded --remove-section=.comment $@
+
+install:
+	@copy $(TARGET) $(DEST)
+	@delete $(TARGET)
+	@avail flush
+
+bump:
+	rx br NA $(TARGET)
+
+clean:
+	rm -f *.o
+	rm -f $(TARGET)
+
+libinit.o:  libinit.c amigaconfig.h expat.library_rev.h expat.h lib_protos.h \
+            expat_external.h
+
+init.o:     init.c amigaconfig.h expat.h lib_protos.h expat_external.h
+
+loc.o:      loc.c amigaconfig.h loc.h expat.h lib_protos.h expat_external.h
+
+utils.o:    utils.c amigaconfig.h expat.h lib_protos.h expat_external.h
+
+mosstubs.o: mosstubs.c amigaconfig.h expat.h lib_protos.h expat_external.h
+
+xmlparse.o: xmlparse.c amigaconfig.h amigaconfig.h ascii.h expat.h \
+            internal.h xmltok.h xmlrole.h expat.h lib_protos.h \
+            expat.h lib_protos.h expat_external.h xmltok.h \
+            expat_external.h expat_external.h
+
+xmlrole.o:  xmlrole.c amigaconfig.h amigaconfig.h expat_external.h \
+            internal.h xmlrole.h ascii.h expat.h lib_protos.h \
+            expat.h lib_protos.h xmltok.h expat_external.h \
+            expat_external.h
+
+xmltok.o:   xmltok.c amigaconfig.h amigaconfig.h expat_external.h \
+            internal.h xmltok.h nametab.h xmltok_impl.h ascii.h \
+            xmltok_impl.c asciitab.h utf8tab.h asciitab.h utf8tab.h \
+            iasciitab.h utf8tab.h iasciitab.h utf8tab.h asciitab.h \
+            latin1tab.h asciitab.h latin1tab.h asciitab.h asciitab.h \
+            xmltok_impl.c asciitab.h latin1tab.h asciitab.h latin1tab.h \
+            iasciitab.h latin1tab.h iasciitab.h latin1tab.h xmltok_impl.c \
+            asciitab.h latin1tab.h asciitab.h latin1tab.h iasciitab.h \
+            latin1tab.h iasciitab.h latin1tab.h xmltok_ns.c xmltok_ns.c expat.h \
+            lib_protos.h expat.h lib_protos.h expat_external.h expat_external.h
+

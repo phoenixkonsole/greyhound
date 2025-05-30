@@ -1,0 +1,23 @@
+TARGET = test-68k
+
+# Objects
+OBJS = minicheck.o chardata.o runtests.o
+
+# Libs
+LIBS = LIB:scm.lib LIB:sc.lib LIB:amiga.lib
+
+# Built module
+test: $(OBJS) $(LIBS)
+	SLINK <with <
+FROM LIB:c.o $(OBJS) TO $(TARGET) LIB $(LIBS) NOICONS
+<
+	delete minicheck.o chardata.o runtests.o
+
+# Rules
+.c.o:
+	SC $*.c IDLEN=128 INCDIR=/include
+
+minicheck.o: minicheck.c minicheck.h
+chardata.o:  chardata.c minicheck.h chardata.h
+runtests.o:  runtests.c chardata.h minicheck.h
+

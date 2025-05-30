@@ -1,0 +1,307 @@
+#ifndef LOC_H
+#define LOC_H
+
+
+/****************************************************************************/
+
+
+/* This file was created automatically by CatComp.
+ * Do NOT edit by hand!
+ */
+
+
+#ifndef EXEC_TYPES_H
+#include <exec/types.h>
+#endif
+
+#ifdef CATCOMP_ARRAY
+#undef CATCOMP_NUMBERS
+#undef CATCOMP_STRINGS
+#define CATCOMP_NUMBERS
+#define CATCOMP_STRINGS
+#endif
+
+#ifdef CATCOMP_BLOCK
+#undef CATCOMP_STRINGS
+#define CATCOMP_STRINGS
+#endif
+
+
+/****************************************************************************/
+
+
+#ifdef CATCOMP_NUMBERS
+
+#define XML_ERROR_NO_MEMORY 1
+#define XML_ERROR_SYNTAX 2
+#define XML_ERROR_NO_ELEMENTS 3
+#define XML_ERROR_IVALID_TOKEN 4
+#define XML_ERROR_UNCLOSED_TOKEN 5
+#define XML_ERROR_PARTIAL_CHAR 6
+#define XML_ERROR_TAG_MISMATCH 7
+#define XML_ERROR_DUPLICATE_ATTRIBUTE 8
+#define XML_ERROR_JUNK_AFTER_DOC_ELEMENT 9
+#define XML_ERROR_PARAM_ENTITY_REF 10
+#define XML_ERROR_UNDEFINED_ENTITY 11
+#define XML_ERROR_RECURSIVE_ENTITY_REF 12
+#define XML_ERROR_ASYNC_ENTITY 13
+#define XML_ERROR_BAD_CHAR_REF 14
+#define XML_ERROR_BINARY_ENTITY_REF 15
+#define XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF 16
+#define XML_ERROR_MISPLACED_XML_PI 17
+#define XML_ERROR_UNKNOWN_ENCODING 18
+#define XML_ERROR_INCORRECT_ENCODING 19
+#define XML_ERROR_UNCLOSED_CDATA_SECTION 20
+#define XML_ERROR_EXTERNAL_ENTITY_HANDLING 21
+#define XML_ERROR_NOT_STANDALONE 22
+#define XML_ERROR_UNEXPECTED_STATE 23
+#define XML_ERROR_ENTITY_DECLARED_IN_PE 24
+#define XML_ERROR_FEATURE_REQUIRES_XML_DTD 25
+#define XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING 26
+#define XML_ERROR_UNBOUND_PREFIX 27
+#define XML_ERROR_UNDECLARING_PREFIX 28
+#define XML_ERROR_INCOMPLETE_PE 29
+#define XML_ERROR_XML_DECL 30
+#define XML_ERROR_TEXT_DECL 31
+#define XML_ERROR_PUBLICID 32
+#define XML_ERROR_SUSPENDED 33
+#define XML_ERROR_NOT_SUSPENDED 34
+#define XML_ERROR_ABORTED 35
+#define XML_ERROR_FINISHED 36
+#define XML_ERROR_SUSPEND_PE 37
+
+#endif /* CATCOMP_NUMBERS */
+
+
+/****************************************************************************/
+
+
+#ifdef CATCOMP_STRINGS
+
+#define XML_ERROR_NO_MEMORY_STR "out of memory"
+#define XML_ERROR_SYNTAX_STR "syntax error"
+#define XML_ERROR_NO_ELEMENTS_STR "no element found"
+#define XML_ERROR_IVALID_TOKEN_STR "not well-formed (invalid token)"
+#define XML_ERROR_UNCLOSED_TOKEN_STR "unclosed token"
+#define XML_ERROR_PARTIAL_CHAR_STR "partial character"
+#define XML_ERROR_TAG_MISMATCH_STR "mismatched tag"
+#define XML_ERROR_DUPLICATE_ATTRIBUTE_STR "duplicate attribute"
+#define XML_ERROR_JUNK_AFTER_DOC_ELEMENT_STR "junk after document element"
+#define XML_ERROR_PARAM_ENTITY_REF_STR "illegal parameter entity reference"
+#define XML_ERROR_UNDEFINED_ENTITY_STR "undefined entity"
+#define XML_ERROR_RECURSIVE_ENTITY_REF_STR "recursive entity reference"
+#define XML_ERROR_ASYNC_ENTITY_STR "asynchronous entity"
+#define XML_ERROR_BAD_CHAR_REF_STR "reference to invalid character number"
+#define XML_ERROR_BINARY_ENTITY_REF_STR "reference to binary entity"
+#define XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF_STR "reference to external entity in attribute"
+#define XML_ERROR_MISPLACED_XML_PI_STR "xml declaration not at start of external entity"
+#define XML_ERROR_UNKNOWN_ENCODING_STR "unknown encoding"
+#define XML_ERROR_INCORRECT_ENCODING_STR "encoding specified in XML declaration is incorrect"
+#define XML_ERROR_UNCLOSED_CDATA_SECTION_STR "unclosed CDATA section"
+#define XML_ERROR_EXTERNAL_ENTITY_HANDLING_STR "error in processing external entity reference"
+#define XML_ERROR_NOT_STANDALONE_STR "document is not standalone"
+#define XML_ERROR_UNEXPECTED_STATE_STR "unexpected parser state - please send a bug report"
+#define XML_ERROR_ENTITY_DECLARED_IN_PE_STR "entity declared in parameter entity"
+#define XML_ERROR_FEATURE_REQUIRES_XML_DTD_STR "requested feature requires XML_DTD support in Expat"
+#define XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING_STR "cannot change setting once parsing has begun"
+#define XML_ERROR_UNBOUND_PREFIX_STR "unbound prefix"
+#define XML_ERROR_UNDECLARING_PREFIX_STR "must not undeclare prefix"
+#define XML_ERROR_INCOMPLETE_PE_STR "incomplete markup in parameter entity"
+#define XML_ERROR_XML_DECL_STR "XML declaration not well-formed"
+#define XML_ERROR_TEXT_DECL_STR "text declaration not well-formed"
+#define XML_ERROR_PUBLICID_STR "illegal character(s) in public id"
+#define XML_ERROR_SUSPENDED_STR "parser suspended"
+#define XML_ERROR_NOT_SUSPENDED_STR "parser not suspended"
+#define XML_ERROR_ABORTED_STR "parsing aborted"
+#define XML_ERROR_FINISHED_STR "parsing finished"
+#define XML_ERROR_SUSPEND_PE_STR "cannot suspend in external parameter entit"
+
+#endif /* CATCOMP_STRINGS */
+
+
+/****************************************************************************/
+
+
+#ifdef CATCOMP_ARRAY
+
+struct CatCompArrayType
+{
+    LONG   cca_ID;
+    STRPTR cca_Str;
+};
+
+static const struct CatCompArrayType CatCompArray[] =
+{
+    {XML_ERROR_NO_MEMORY,(STRPTR)XML_ERROR_NO_MEMORY_STR},
+    {XML_ERROR_SYNTAX,(STRPTR)XML_ERROR_SYNTAX_STR},
+    {XML_ERROR_NO_ELEMENTS,(STRPTR)XML_ERROR_NO_ELEMENTS_STR},
+    {XML_ERROR_IVALID_TOKEN,(STRPTR)XML_ERROR_IVALID_TOKEN_STR},
+    {XML_ERROR_UNCLOSED_TOKEN,(STRPTR)XML_ERROR_UNCLOSED_TOKEN_STR},
+    {XML_ERROR_PARTIAL_CHAR,(STRPTR)XML_ERROR_PARTIAL_CHAR_STR},
+    {XML_ERROR_TAG_MISMATCH,(STRPTR)XML_ERROR_TAG_MISMATCH_STR},
+    {XML_ERROR_DUPLICATE_ATTRIBUTE,(STRPTR)XML_ERROR_DUPLICATE_ATTRIBUTE_STR},
+    {XML_ERROR_JUNK_AFTER_DOC_ELEMENT,(STRPTR)XML_ERROR_JUNK_AFTER_DOC_ELEMENT_STR},
+    {XML_ERROR_PARAM_ENTITY_REF,(STRPTR)XML_ERROR_PARAM_ENTITY_REF_STR},
+    {XML_ERROR_UNDEFINED_ENTITY,(STRPTR)XML_ERROR_UNDEFINED_ENTITY_STR},
+    {XML_ERROR_RECURSIVE_ENTITY_REF,(STRPTR)XML_ERROR_RECURSIVE_ENTITY_REF_STR},
+    {XML_ERROR_ASYNC_ENTITY,(STRPTR)XML_ERROR_ASYNC_ENTITY_STR},
+    {XML_ERROR_BAD_CHAR_REF,(STRPTR)XML_ERROR_BAD_CHAR_REF_STR},
+    {XML_ERROR_BINARY_ENTITY_REF,(STRPTR)XML_ERROR_BINARY_ENTITY_REF_STR},
+    {XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF,(STRPTR)XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF_STR},
+    {XML_ERROR_MISPLACED_XML_PI,(STRPTR)XML_ERROR_MISPLACED_XML_PI_STR},
+    {XML_ERROR_UNKNOWN_ENCODING,(STRPTR)XML_ERROR_UNKNOWN_ENCODING_STR},
+    {XML_ERROR_INCORRECT_ENCODING,(STRPTR)XML_ERROR_INCORRECT_ENCODING_STR},
+    {XML_ERROR_UNCLOSED_CDATA_SECTION,(STRPTR)XML_ERROR_UNCLOSED_CDATA_SECTION_STR},
+    {XML_ERROR_EXTERNAL_ENTITY_HANDLING,(STRPTR)XML_ERROR_EXTERNAL_ENTITY_HANDLING_STR},
+    {XML_ERROR_NOT_STANDALONE,(STRPTR)XML_ERROR_NOT_STANDALONE_STR},
+    {XML_ERROR_UNEXPECTED_STATE,(STRPTR)XML_ERROR_UNEXPECTED_STATE_STR},
+    {XML_ERROR_ENTITY_DECLARED_IN_PE,(STRPTR)XML_ERROR_ENTITY_DECLARED_IN_PE_STR},
+    {XML_ERROR_FEATURE_REQUIRES_XML_DTD,(STRPTR)XML_ERROR_FEATURE_REQUIRES_XML_DTD_STR},
+    {XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING,(STRPTR)XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING_STR},
+    {XML_ERROR_UNBOUND_PREFIX,(STRPTR)XML_ERROR_UNBOUND_PREFIX_STR},
+    {XML_ERROR_UNDECLARING_PREFIX,(STRPTR)XML_ERROR_UNDECLARING_PREFIX_STR},
+    {XML_ERROR_INCOMPLETE_PE,(STRPTR)XML_ERROR_INCOMPLETE_PE_STR},
+    {XML_ERROR_XML_DECL,(STRPTR)XML_ERROR_XML_DECL_STR},
+    {XML_ERROR_TEXT_DECL,(STRPTR)XML_ERROR_TEXT_DECL_STR},
+    {XML_ERROR_PUBLICID,(STRPTR)XML_ERROR_PUBLICID_STR},
+    {XML_ERROR_SUSPENDED,(STRPTR)XML_ERROR_SUSPENDED_STR},
+    {XML_ERROR_NOT_SUSPENDED,(STRPTR)XML_ERROR_NOT_SUSPENDED_STR},
+    {XML_ERROR_ABORTED,(STRPTR)XML_ERROR_ABORTED_STR},
+    {XML_ERROR_FINISHED,(STRPTR)XML_ERROR_FINISHED_STR},
+    {XML_ERROR_SUSPEND_PE,(STRPTR)XML_ERROR_SUSPEND_PE_STR},
+};
+
+#endif /* CATCOMP_ARRAY */
+
+
+/****************************************************************************/
+
+
+#ifdef CATCOMP_BLOCK
+
+static const char CatCompBlock[] =
+{
+    "\x00\x00\x00\x01\x00\x0E"
+    XML_ERROR_NO_MEMORY_STR "\x00"
+    "\x00\x00\x00\x02\x00\x0E"
+    XML_ERROR_SYNTAX_STR "\x00\x00"
+    "\x00\x00\x00\x03\x00\x12"
+    XML_ERROR_NO_ELEMENTS_STR "\x00\x00"
+    "\x00\x00\x00\x04\x00\x20"
+    XML_ERROR_IVALID_TOKEN_STR "\x00"
+    "\x00\x00\x00\x05\x00\x10"
+    XML_ERROR_UNCLOSED_TOKEN_STR "\x00\x00"
+    "\x00\x00\x00\x06\x00\x12"
+    XML_ERROR_PARTIAL_CHAR_STR "\x00"
+    "\x00\x00\x00\x07\x00\x10"
+    XML_ERROR_TAG_MISMATCH_STR "\x00\x00"
+    "\x00\x00\x00\x08\x00\x14"
+    XML_ERROR_DUPLICATE_ATTRIBUTE_STR "\x00"
+    "\x00\x00\x00\x09\x00\x1C"
+    XML_ERROR_JUNK_AFTER_DOC_ELEMENT_STR "\x00"
+    "\x00\x00\x00\x0A\x00\x24"
+    XML_ERROR_PARAM_ENTITY_REF_STR "\x00\x00"
+    "\x00\x00\x00\x0B\x00\x12"
+    XML_ERROR_UNDEFINED_ENTITY_STR "\x00\x00"
+    "\x00\x00\x00\x0C\x00\x1C"
+    XML_ERROR_RECURSIVE_ENTITY_REF_STR "\x00\x00"
+    "\x00\x00\x00\x0D\x00\x14"
+    XML_ERROR_ASYNC_ENTITY_STR "\x00"
+    "\x00\x00\x00\x0E\x00\x26"
+    XML_ERROR_BAD_CHAR_REF_STR "\x00"
+    "\x00\x00\x00\x0F\x00\x1C"
+    XML_ERROR_BINARY_ENTITY_REF_STR "\x00\x00"
+    "\x00\x00\x00\x10\x00\x2A"
+    XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF_STR "\x00"
+    "\x00\x00\x00\x11\x00\x30"
+    XML_ERROR_MISPLACED_XML_PI_STR "\x00"
+    "\x00\x00\x00\x12\x00\x12"
+    XML_ERROR_UNKNOWN_ENCODING_STR "\x00\x00"
+    "\x00\x00\x00\x13\x00\x34"
+    XML_ERROR_INCORRECT_ENCODING_STR "\x00\x00"
+    "\x00\x00\x00\x14\x00\x18"
+    XML_ERROR_UNCLOSED_CDATA_SECTION_STR "\x00\x00"
+    "\x00\x00\x00\x15\x00\x2E"
+    XML_ERROR_EXTERNAL_ENTITY_HANDLING_STR "\x00"
+    "\x00\x00\x00\x16\x00\x1C"
+    XML_ERROR_NOT_STANDALONE_STR "\x00\x00"
+    "\x00\x00\x00\x17\x00\x34"
+    XML_ERROR_UNEXPECTED_STATE_STR "\x00\x00"
+    "\x00\x00\x00\x18\x00\x24"
+    XML_ERROR_ENTITY_DECLARED_IN_PE_STR "\x00"
+    "\x00\x00\x00\x19\x00\x34"
+    XML_ERROR_FEATURE_REQUIRES_XML_DTD_STR "\x00"
+    "\x00\x00\x00\x1A\x00\x2E"
+    XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING_STR "\x00\x00"
+    "\x00\x00\x00\x1B\x00\x10"
+    XML_ERROR_UNBOUND_PREFIX_STR "\x00\x00"
+    "\x00\x00\x00\x1C\x00\x1A"
+    XML_ERROR_UNDECLARING_PREFIX_STR "\x00"
+    "\x00\x00\x00\x1D\x00\x26"
+    XML_ERROR_INCOMPLETE_PE_STR "\x00"
+    "\x00\x00\x00\x1E\x00\x20"
+    XML_ERROR_XML_DECL_STR "\x00"
+    "\x00\x00\x00\x1F\x00\x22"
+    XML_ERROR_TEXT_DECL_STR "\x00\x00"
+    "\x00\x00\x00\x20\x00\x22"
+    XML_ERROR_PUBLICID_STR "\x00"
+    "\x00\x00\x00\x21\x00\x12"
+    XML_ERROR_SUSPENDED_STR "\x00\x00"
+    "\x00\x00\x00\x22\x00\x16"
+    XML_ERROR_NOT_SUSPENDED_STR "\x00\x00"
+    "\x00\x00\x00\x23\x00\x10"
+    XML_ERROR_ABORTED_STR "\x00"
+    "\x00\x00\x00\x24\x00\x12"
+    XML_ERROR_FINISHED_STR "\x00\x00"
+    "\x00\x00\x00\x25\x00\x2C"
+    XML_ERROR_SUSPEND_PE_STR "\x00\x00"
+};
+
+#endif /* CATCOMP_BLOCK */
+
+
+/****************************************************************************/
+
+
+struct LocaleInfo
+{
+    APTR li_LocaleBase;
+    APTR li_Catalog;
+};
+
+
+#ifdef CATCOMP_CODE
+
+STRPTR GetString(struct LocaleInfo *li, LONG stringNum)
+{
+LONG   *l;
+UWORD  *w;
+STRPTR  builtIn;
+
+    l = (LONG *)CatCompBlock;
+
+    while (*l != stringNum)
+    {
+        w = (UWORD *)((ULONG)l + 4);
+        l = (LONG *)((ULONG)l + (ULONG)*w + 6);
+    }
+    builtIn = (STRPTR)((ULONG)l + 6);
+
+#undef LocaleBase
+#define LocaleBase li->li_LocaleBase
+    
+    if (LocaleBase)
+        return(GetCatalogStr(li->li_Catalog,stringNum,builtIn));
+#undef LocaleBase
+
+    return(builtIn);
+}
+
+
+#endif /* CATCOMP_CODE */
+
+
+/****************************************************************************/
+
+
+#endif /* LOC_H */

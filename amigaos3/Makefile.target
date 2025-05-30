@@ -35,7 +35,7 @@ LDFLAGS += -lhubbub  -lcurl -lssl -lcrypto
 LDFLAGS += -lpng -lz -lcss -lwapcaplet -lparserutils
 
 ifeq ($(RTG),YES)
-LDFLAGS += -lSDL_ix -lgl_dummy
+LDFLAGS += -lSDL
 else
 LDFLAGS += -lSDL_AGA c2p8_040_asm.o c2p8_040_dbl_asm.o
 endif

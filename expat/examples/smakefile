@@ -1,0 +1,11 @@
+
+all: elements-68k outline-68k
+
+elements-68k: elements.c
+	sc elements.c INCDIR=/include LINK NOICONS TO elements-68k
+	delete elements-68k.lnk elements.o
+
+outline-68k: outline.c
+	sc outline.c INCDIR=/include LINK NOICONS TO outline-68k
+	delete outline-68k.lnk outline.o
+

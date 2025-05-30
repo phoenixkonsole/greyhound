@@ -1,0 +1,31 @@
+
+This is a MorphOS and Amiga Classic port of Expat 2.0.1 .
+
+Expat uses a lot of callback functions:
+
+- if you program using Expat is compiled under MorphOS your
+  callbacks are considered to be PPC sysv functions.
+
+- if your program using Expat is compiled as a 68k executable
+  yur callbacks are considered as 68k stack functions.
+
+MorpOS Expat (expat.library.elf) should be compatible with any
+program using version of expat.library by others.
+
+---
+
+Why you should not use expat.library for os4:
+
+expat.library for os4 cannot be used from 68k code, because of
+expat uses callbacks intensively so a 68k stack function would
+not work as callback. This version of expat can be used from
+68k code (I mean the mos version; it is obvious you can use
+the 68k version in 68k code).
+
+expat.library for os4 uses malloc() in a shared library, if
+you don't define your memory suite functions. It is not acceptable.
+
+---
+
+Alfonso [alfie] Ranieri <alforan@tin.it>
+

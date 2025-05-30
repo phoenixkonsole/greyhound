@@ -1,0 +1,5 @@
+
+benchmark-68k: benchmark.c
+	SC benchmark INCDIR=//include LINK LIB LIB:scm.lib LIB:sc.lib NOICONS TO benchmark-68k
+	delete benchmark.o benchmark-68k.lnk
+
